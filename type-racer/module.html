@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Type Racer Module</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="module-container">
+    <div class="progress-container">
+      <span id="progress-text">0 / 4</span>
+    </div>
+    <div class="speed-indicator">
+      <div class="circle" id="circle1"></div>
+      <div class="circle" id="circle2"></div>
+      <div class="circle" id="circle3"></div>
+      <span id="speed-requirement">-- WPM</span>
+    </div>
+    
+    <div class="typing-area">
+      <input type="text" id="typing-input" placeholder="Start typing here..." autofocus onpaste="return false;">
+      <div id="text-display">
+        <p id="line1"></p>
+        <p id="line2"></p>
+      </div>
+    </div>
+
+    <div id="message"></div>
+  </div>
+
+  <script src="script.js" type="module"></script> </body>
+</html>
