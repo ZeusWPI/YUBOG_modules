@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="box">
+    <h1>Password</h1>
+    <div class="middle">
+        <div style="float:left; margin:2vmin">
+            <button id="knop1Up">^</button>
+            <label id="Letter1"></label>
+            <button id="knop1Down">v</button>
+        </div>
+        <div style="float:left; margin:2vmin">
+            <button id="knop2Up">^</button>
+            <label id="Letter2"></label>
+            <button id="knop2Down">v</button>
+        </div>
+        <div style="float:left; margin:2vmin">
+            <button id="knop3Up">^</button>
+            <label id="Letter3"></label>
+            <button id="knop3Down">v</button>
+        </div>
+        <div style="float:left; margin:2vmin">
+            <button id="knop4Up">^</button>
+            <label id="Letter4"></label>
+            <button id="knop4Down">v</button>
+        </div>
+        <div style="float:left; margin:2vmin">
+            <button id="knop5Up">^</button>
+            <label id="Letter5"></label>
+            <button id="knop5Down">v</button>
+        </div>
+        <br>
+        <button id="submit">submit</button>
+    </div>
+    </div>
+</body>
+
+<script type="module">
+    import BombModule from "../../ModuleLib.js";
+    const bombModule = new BombModule();
+    const words = [
+        "ABOUT",
+        "AFTER",
+        "AGAIN",
+        "BELOW",
+        "COULD",
+        "EVERY",
+        "FIRST",
+        "FOUND",
+        "GREAT",
+        "HOUSE",
+        "LARGE",
+        "LEARN",
+        "NEVER",
+        "OTHER",
+        "PLACE",
+        "PLANT",
+        "POINT",
+        "RIGHT",
+        "SMALL",
+        "SOUND",
+        "SPELL",
+        "STILL",
+        "STUDY",
+        "THEIR",
+        "THERE",
+        "THING",
+        "THINK",
+        "THREE",
+        "WATER",
+        "WHERE",
+        "WHICH",
+        "WORLD",
+        "WOULD",
+        "WRITE"
+    ];
+    const word = words[Math.floor(Math.random() * words.length)];
+    let letters4 = new Set("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(''));
+    let letters1 = new Set(letters4);
+    let letters3 = new Set(letters4);
+    let letters5 = new Set(letters4);
+    let letters2 = new Set(letters4);
+    const letterLijsten = [letters1, letters2, letters3, letters4, letters5]
+
+    // letters filteren zodat slechts 1 oplossing mogelijk is
+    for (let woord of words) {
+        if (woord.charAt(0) !== word.charAt(0)) {
+            letters1.delete(woord.charAt(0));
+        }
+
+        if (woord.charAt(2) !== word.charAt(2)) {
+            letters3.delete(woord.charAt(2));
+        }
+
+        if (woord.charAt(4) !== word.charAt(4)) {
+            letters5.delete(woord.charAt(4));
+        }
+    }
+
+    for (let i = 0; i < letterLijsten.length; i += 1) {
+        const lijst = letterLijsten[i];
+        while (lijst.size > 6) {
+            const letter = Array.from(lijst)[Math.floor(Math.random() * lijst.size)];
+            if (letter !== word.charAt(i)) {
+                lijst.delete(letter);
+            }
+        }
+    }
+
+    letters4 = Array.from(letters4);
+    letters1 = Array.from(letters1);
+    letters3 = Array.from(letters3);
+    letters5 = Array.from(letters5);
+    letters2 = Array.from(letters2);
+
+    // startwaarde letters instellen:
+    document.getElementById('Letter1').textContent = letters1[Math.floor(Math.random() * letters1.length)];
+    document.getElementById('Letter2').textContent = letters2[Math.floor(Math.random() * letters2.length)];
+    document.getElementById('Letter3').textContent = letters3[Math.floor(Math.random() * letters3.length)];
+    document.getElementById('Letter4').textContent = letters4[Math.floor(Math.random() * letters4.length)];
+    document.getElementById('Letter5').textContent = letters5[Math.floor(Math.random() * letters5.length)];
+
+    // letters aanpassen
+    document.getElementById("knop1Up").onclick = () => {changeLetter(document.getElementById("Letter1"), letters1, 1)};
+    document.getElementById("knop1Down").onclick = () => {changeLetter(document.getElementById("Letter1"), letters1, -1)};
+    document.getElementById("knop2Up").onclick = () => {changeLetter(document.getElementById("Letter2"), letters2, 1)};
+    document.getElementById("knop2Down").onclick = () => {changeLetter(document.getElementById("Letter2"), letters2, -1)};
+    document.getElementById("knop3Up").onclick = () => {changeLetter(document.getElementById("Letter3"), letters3, 1)};
+    document.getElementById("knop3Down").onclick = () => {changeLetter(document.getElementById("Letter3"), letters3, -1)};
+    document.getElementById("knop4Up").onclick = () => {changeLetter(document.getElementById("Letter4"), letters4, 1)};
+    document.getElementById("knop4Down").onclick = () => {changeLetter(document.getElementById("Letter4"), letters4, -1)};
+    document.getElementById("knop5Up").onclick = () => {changeLetter(document.getElementById("Letter5"), letters5, 1)};
+    document.getElementById("knop5Down").onclick = () => {changeLetter(document.getElementById("Letter5"), letters5, -1)};
+
+    // check password
+    document.getElementById("submit").addEventListener("click", checkPassword)
+
+    function changeLetter(label, letters, amount) {
+        label.textContent = letters[(((letters.indexOf(label.textContent) + amount) % letters.length) + letters.length) % letters.length];
+    }
+
+    function checkPassword() {
+        const guess = document.getElementById("Letter1").textContent
+            + document.getElementById("Letter2").textContent
+            + document.getElementById("Letter3").textContent
+            + document.getElementById("Letter4").textContent
+            + document.getElementById("Letter5").textContent;
+        if (guess === word) {
+            bombModule.sendSolve();
+        } else {
+            bombModule.sendStrike();
+        }
+    }
+</script>
+
+<style>
+    body {
+        user-select: none;
+        font-size: 8vmin;
+    }
+
+    label {
+        margin: 0 auto;
+        display: block;
+        border-style: solid;
+        padding: 3vmin;
+        border-width: 1vmin;
+        border-radius: 10%;
+        width: 6vmin;
+        font-family: monospace;
+        text-align: center;
+    }
+
+    button {
+        margin: 3vmin auto;
+        display: block;
+        border: none;
+        padding-right: 5vmin;
+        padding-left: 5vmin;
+        border-radius: 10%;
+        color: white;
+        background-color: darkgray;
+        cursor: pointer;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    #submit {
+        border-color: lightgray;
+        border-style: solid;
+        border-width: 1vmin;
+        border-radius: 0;
+        font-size: 5vmin;
+    }
+
+    .box {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0%;
+        color: white;
+    }
+</style>
+</html>
