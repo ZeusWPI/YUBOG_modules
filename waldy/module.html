@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Click Coordinates in Percentages</title>
+    <style>
+        #myImage {
+            max-width: 100%; /* Responsive image */
+            height: auto;
+        }
+        body {
+          margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+  <img id="image" src="wally.jpg" alt="Clickable Image">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jshashes/1.0.8/hashes.min.js" integrity="sha512-1HyPmPHvi5wFUctYkBhwOYgXmMdbPrDaXKBrbGRI3o1CQkTKazG/RKqR8QwVIjTDOQ3uAOPOFkEbzi99Td6yiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+  <script type="module">
+    import BombModule from "../../ModuleLib.js";
+    const bombModule = new BombModule();
+    const sha = new Hashes.SHA256;
+
+    const image = document.getElementById('image');
+
+    const ysol = new Set([
+    '98a3ab7c340e8a033e7b37b6ef9428751581760af67bbab2b9e05d4964a8874a',
+    '48449a14a4ff7d79bb7a1b6f3d488eba397c36ef25634c111b49baf362511afc',
+    '5316ca1c5ddca8e6ceccfce58f3b8540e540ee22f6180fb89492904051b3d531',
+    'a46e37632fa6ca51a13fe39a567b3c23b28c2f47d8af6be9bd63e030e214ba38',
+    'bbb965ab0c80d6538cf2184babad2a564a010376712012bd07b0af92dcd3097d',
+    '44c8031cb036a7350d8b9b8603af662a4b9cdbd2f96e8d5de5af435c9c35da69',
+    'b4944c6ff08dc6f43da2e9c824669b7d927dd1fa976fadc7b456881f51bf5ccc',
+    '434c9b5ae514646bbd91b50032ca579efec8f22bf0b4aac12e65997c418e0dd6',
+    'bdd2d3af3a5a1213497d4f1f7bfcda898274fe9cb5401bbc0190885664708fc2',
+    '8b940be7fb78aaa6b6567dd7a3987996947460df1c668e698eb92ca77e425349',
+    'cd70bea023f752a0564abb6ed08d42c1440f2e33e29914e55e0be1595e24f45a']);
+
+    const xsol = new Set([
+    'c6f3ac57944a531490cd39902d0f777715fd005efac9a30622d5f5205e7f6894',
+    '86e50149658661312a9e0b35558d84f6c6d3da797f552a9657fe0558ca40cdef',
+    '9f14025af0065b30e47e23ebb3b491d39ae8ed17d33739e5ff3827ffb3634953',]);
+
+    image.addEventListener('click', function(event) {
+        const rect = image.getBoundingClientRect();
+
+        const x = event.clientX - rect.left; 
+        const y = event.clientY - rect.top;  
+
+        const xp = ((x / rect.width) * 100).toFixed(0); 
+        const yp = ((y / rect.height) * 100).toFixed(0); 
+
+        const solvedx = xsol.has(sha.hex(xp.toString()).toString())
+        const solvedy = ysol.has(sha.hex(yp.toString()).toString());
+        if (solvedx && solvedy) {
+          bombModule.sendSolve();
+        } else {
+          bombModule.sendStrike();
+        }
+    });
+  </script>
+
+</html>
+
