@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="codeium:type" content="codemirror5">
+<title>Vergadering IX - CodiMD</title>
+<link rel="icon" type="image/png" href="https://codimd.zeus.gent/favicon.png">
+<link rel="apple-touch-icon" href="https://codimd.zeus.gent/apple-touch-icon.png">
+
+<link rel="stylesheet" href="manual_files/emojify.min.css">
+<link rel="stylesheet" href="manual_files/font.css">
+<link rel="stylesheet" href="manual_files/fork-awesome.min.css">
+<link href="manual_files/index-styles-pack.css" rel="stylesheet"><link href="manual_files/index-styles.css" rel="stylesheet"><link href="manual_files/index.css" rel="stylesheet">
+
+<link rel="stylesheet" href="manual_files/lint.css">
+
+<style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style></style><style></style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body class="night" data-new-gr-c-s-check-loaded="8.929.0" data-gr-ext-installed="" style="background-color: white; padding-top: 51px;" data-new-gr-c-s-loaded="8.929.0"><div id="MathJax_Message" style="display: none;"></div>
+    <nav class="navbar navbar-default navbar-fixed-top unselectable hidden-print navbar-show">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <div class="pull-right" style="margin-top: 17px; color: #777;">
+            <div class="visible-xs">&nbsp;</div>
+            <div class="visible-sm">&nbsp;</div>
+            <div class="visible-md">&nbsp;</div>
+            <div class="visible-lg">&nbsp;</div>
+        </div>
+        <div class="nav-mobile nav-status visible-xs" id="short-online-user-list">
+            <a class="ui-short-status" data-toggle="dropdown">
+                <span class="label label-warning ui-status-connected" style="display: none;"><i class="fa fa-wifi"></i></span>
+                <span class="label label-primary ui-status-online" style=""><i class="fa fa-users"></i> <span class="ui-status-short-msg">1</span></span>
+                <span class="label label-danger ui-status-offline" style="display: none;"><i class="fa fa-plug"></i></span>
+            </a>
+            <ul class="dropdown-menu list" role="menu" aria-labelledby="menu"><li class="ui-user-item" style="border-left: 4px solid rgb(186, 232, 69);"><span class="id" style="display:none;">9pI7pYcl-aQymBrEAAN7</span><a href="#"><span class="pull-left"><i class="ui-user-icon" style="background-image: url(&quot;https://codimd.zeus.gent/user/runo/avatar.svg&quot;); margin-right: 6px; margin-left: -4px;"></i></span><span class="ui-user-name name">runo</span><span class="pull-right"><i class="fa fa-circle ui-user-status ui-user-status-online"></i></span></a></li></ul>
+        </div>
+        <a class="navbar-brand pull-left" href="https://codimd.zeus.gent/"><i class="fa fa-file-text"></i> CodiMD</a>
+        <div class="nav-mobile pull-right visible-xs">
+            <span class="btn btn-link btn-file ui-upload-image" title="Upload Image" style="display: none;">
+                <i class="fa fa-camera"></i><input type="file" accept="image/*" name="upload" multiple="">
+            </span>
+            <a data-toggle="dropdown" class="btn btn-link">
+                <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu list" role="menu" aria-labelledby="menu">
+                <li role="presentation"><a role="menuitem" class="ui-new" tabindex="-1" href="https://codimd.zeus.gent/new" target="_blank" rel="noopener"><i class="fa fa-plus fa-fw"></i> New</a>
+                </li>
+                <li role="presentation"><a role="menuitem" class="ui-publish" tabindex="-1" href="https://codimd.zeus.gent/I3nvPQ19Quy0JIYgWpD3tQ/publish" target="_blank" rel="noopener"><i class="fa fa-share-square-o fa-fw"></i> Publish</a>
+                </li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Extra</li>
+                <li role="presentation"><a role="menuitem" class="ui-extra-revision" tabindex="-1" data-toggle="modal" data-target="#revisionModal"><i class="fa fa-history fa-fw"></i> Revision</a>
+                </li>
+                <li role="presentation"><a role="menuitem" class="ui-extra-slide" tabindex="-1" href="https://codimd.zeus.gent/I3nvPQ19Quy0JIYgWpD3tQ/slide" target="_blank" rel="noopener"><i class="fa fa-tv fa-fw"></i> Slide Mode</a>
+                </li>
+                
+                <li class="divider"></li>
+                <li class="dropdown-header">Import</li>
+                <li role="presentation"><a role="menuitem" class="ui-import-dropbox" tabindex="-1" href="#" target="_self" style="display: none;"><i class="fa fa-dropbox fa-fw"></i> Dropbox</a>
+                </li>
+                <li role="presentation"><a role="menuitem" class="ui-import-gist" href="#" data-toggle="modal" data-target="#gistImportModal"><i class="fa fa-github fa-fw"></i> Gist</a>
+                </li>
+                
+                <li role="presentation"><a role="menuitem" class="ui-import-clipboard" href="#" data-toggle="modal" data-target="#clipboardModal"><i class="fa fa-clipboard fa-fw"></i> Clipboard</a>
+                </li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Download</li>
+                <li role="presentation"><a role="menuitem" class="ui-download-markdown" tabindex="-1" href="#" target="_self"><i class="fa fa-file-text fa-fw"></i> Markdown</a>
+                </li>
+                <li role="presentation"><a role="menuitem" class="ui-download-html" tabindex="-1" href="#" target="_self"><i class="fa fa-file-code-o fa-fw"></i> HTML</a>
+                </li>
+                <li role="presentation"><a role="menuitem" class="ui-download-raw-html" tabindex="-1" href="#" target="_self"><i class="fa fa-file-code-o fa-fw"></i> Raw HTML</a>
+                </li>
+                
+                  <li role="presentation"><a role="menuitem" class="ui-download-pdf-beta" tabindex="-1" href="https://codimd.zeus.gent/I3nvPQ19Quy0JIYgWpD3tQ/pdf" target="_self" download=""><i class="fa fa-file-pdf-o fa-fw"></i> PDF (Beta)</a>
+                  </li>
+                
+                <li role="presentation"><a role="menuitem" class="ui-download-pandoc" tabindex="-1" href="#" target="_self" data-toggle="modal" data-target=".pandoc-export-modal"><i class="fa fa-cloud-download fa-fw"></i> Pandoc (Beta)</a>
+                </li>
+                <li class="divider"></li>
+                <li role="presentation"><a role="menuitem" class="ui-help" href="#" data-toggle="modal" data-target=".help-modal"><i class="fa fa-question-circle fa-fw"></i> Help</a>
+                </li>
+            </ul>
+            <a class="btn btn-link ui-mode">
+                <i class="fa fa-pencil"></i>
+            </a>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-form navbar-left" style="padding:0;">
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default ui-edit" title="Edit (Ctrl+Alt+E)">
+                    <input type="radio" name="mode" autocomplete="off"><i class="fa fa-pencil"></i>
+                </label>
+                <label class="btn btn-default ui-both" title="Both (Ctrl+Alt+B)">
+                    <input type="radio" name="mode" autocomplete="off"><i class="fa fa-columns"></i>
+                </label>
+                <label class="btn btn-default ui-view active focus" title="View (Ctrl+Alt+V)">
+                    <input type="radio" name="mode" autocomplete="off" checked="checked"><i class="fa fa-eye"></i>
+                </label>
+            </div>
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn ui-night active" title="Night Theme">
+                    <input type="checkbox" name="night"><i class="fa fa-moon-o"></i>
+                </label>
+            </div>
+            <span class="btn btn-link btn-file ui-help" title="Help" data-toggle="modal" data-target=".help-modal">
+                <i class="fa fa-question-circle"></i>
+            </span>
+            <span class="btn btn-link btn-file ui-upload-image" title="Upload Image" style="display: none;">
+                <i class="fa fa-camera"></i><input type="file" accept="image/*" name="upload" multiple="">
+            </span>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li id="online-user-list">
+                <a class="ui-status" data-toggle="dropdown">
+                    <span class="label label-warning ui-status-connected" style="display: none;"><i class="fa fa-wifi"></i> CONNECTED</span>
+                    <span class="label label-primary ui-status-online" style=""><i class="fa fa-users"></i> <span class="ui-status-short-msg">1</span> ONLINE</span>
+                    <span class="label label-danger ui-status-offline" style="display: none;"><i class="fa fa-plug"></i> OFFLINE</span>
+                </a>
+                <ul class="dropdown-menu list" role="menu" aria-labelledby="menu" style="right: 15px;width: 200px;"><li class="ui-user-item" style="border-left: 4px solid rgb(186, 232, 69);"><span class="id" style="display:none;">9pI7pYcl-aQymBrEAAN7</span><a href="#"><span class="pull-left"><i class="ui-user-icon" style="background-image: url(&quot;https://codimd.zeus.gent/user/runo/avatar.svg&quot;); margin-right: 6px; margin-left: -4px;"></i></span><span class="ui-user-name name">runo</span><span class="pull-right"><i class="fa fa-circle ui-user-status ui-user-status-online"></i></span></a></li></ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" style="padding:0;">
+            <li>
+                <a href="https://codimd.zeus.gent/new" target="_blank" rel="noopener" class="ui-new">
+                    <i class="fa fa-plus"></i> New
+                </a>
+            </li>
+            <li>
+                <a href="https://codimd.zeus.gent/I3nvPQ19Quy0JIYgWpD3tQ/publish" target="_blank" rel="noopener" class="ui-publish">
+                    <i class="fa fa-share-square-o"></i> Publish
+                </a>
+            </li>
+            <li>
+                <a data-toggle="dropdown">
+                    Menu <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu list" role="menu" aria-labelledby="menu">
+                    <li class="dropdown-header">Extra</li>
+                    <li role="presentation"><a role="menuitem" class="ui-extra-revision" tabindex="-1" data-toggle="modal" data-target="#revisionModal"><i class="fa fa-history fa-fw"></i> Revision</a>
+                    </li>
+                    <li role="presentation"><a role="menuitem" class="ui-extra-slide" tabindex="-1" href="https://codimd.zeus.gent/I3nvPQ19Quy0JIYgWpD3tQ/slide" target="_blank" rel="noopener"><i class="fa fa-tv fa-fw"></i> Slide Mode</a>
+                    </li>
+                    
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Import</li>
+                    <li role="presentation"><a role="menuitem" class="ui-import-dropbox" tabindex="-1" href="#" target="_self" style="display: none;"><i class="fa fa-dropbox fa-fw"></i> Dropbox</a>
+                    </li>
+                    <li role="presentation"><a role="menuitem" class="ui-import-gist" href="#" data-toggle="modal" data-target="#gistImportModal"><i class="fa fa-github fa-fw"></i> Gist</a>
+                    </li>
+                    
+                    <li role="presentation"><a role="menuitem" class="ui-import-clipboard" href="#" data-toggle="modal" data-target="#clipboardModal"><i class="fa fa-clipboard fa-fw"></i> Clipboard</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Download</li>
+                    <li role="presentation"><a role="menuitem" class="ui-download-markdown" tabindex="-1" href="#" target="_self"><i class="fa fa-file-text fa-fw"></i> Markdown</a>
+                    </li>
+                    <li role="presentation"><a role="menuitem" class="ui-download-html" tabindex="-1" href="#" target="_self"><i class="fa fa-file-code-o fa-fw"></i> HTML</a>
+                    </li>
+                    <li role="presentation"><a role="menuitem" class="ui-download-raw-html" tabindex="-1" href="#" target="_self"><i class="fa fa-file-code-o fa-fw"></i> Raw HTML</a>
+                    </li>
+                    
+                      <li role="presentation"><a role="menuitem" class="ui-download-pdf-beta" tabindex="-1" href="https://codimd.zeus.gent/I3nvPQ19Quy0JIYgWpD3tQ/pdf" target="_self" download=""><i class="fa fa-file-pdf-o fa-fw"></i> PDF (Beta)</a>
+                      </li>
+                    
+                    <li role="presentation"><a role="menuitem" class="ui-download-pandoc" tabindex="-1" href="#" target="_self" data-toggle="modal" data-target=".pandoc-export-modal"><i class="fa fa-cloud-download fa-fw"></i> Pandoc (Beta)</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="ui-spinner unselectable hidden-print" style="display: none;"><div class="spinner" role="progressbar" style="position: absolute; width: 0px; z-index: 2000000000; left: 50%; top: 50%; transform: scale(1);"><div style="position: absolute; top: -1px; width: 22px; height: 2px; background: transparent; border-radius: 0px; transform-origin: left center 0px; transform: rotate(0deg) translateX(30px);"><div style="width: 100%; height: 100%; background: rgb(0, 0, 0); border-radius: 0px; animation: 0.909091s linear -0.909091s infinite spinner-line-fade-default;"></div></div><div style="position: absolute; top: -1px; width: 22px; height: 2px; background: transparent; border-radius: 0px; transform-origin: left center 0px; transform: rotate(32deg) translateX(30px);"><div style="width: 100%; height: 100%; background: rgb(0, 0, 0); border-radius: 0px; animation: 0.909091s linear -0.826446s infinite spinner-line-fade-default;"></div></div><div style="position: absolute; top: -1px; width: 22px; height: 2px; background: transparent; border-radius: 0px; transform-origin: left center 0px; transform: rotate(65deg) translateX(30px);"><div style="width: 100%; height: 100%; background: rgb(0, 0, 0); border-radius: 0px; animation: 0.909091s linear -0.743802s infinite spinner-line-fade-default;"></div></div><div style="position: absolute; top: -1px; width: 22px; height: 2px; background: transparent; border-radius: 0px; transform-origin: left center 0px; transform: rotate(98deg) translateX(30px);"><div style="width: 100%; height: 100%; background: rgb(0, 0, 0); border-radius: 0px; animation: 0.909091s linear -0.661157s infinite spinner-line-fade-default;"></div></div><div style="position: absolute; top: -1px; width: 22px; height: 2px; background: transparent; border-radius: 0px; transform-origin: left center 0px; transform: rotate(130deg) translateX(30px);"><div style="width: 100%; height: 100%; background: rgb(0, 0, 0); border-radius: 0px; animation: 0.909091s linear -0.578512s infinite spinner-line-fade-default;"></div></div><div style="position: absolute; top: -1px; width: 22px; height: 2px; background: transparent; border-radius: 0px; transform-origin: left center 0px; transform: rotate(163deg) translateX(30px);"><div style="width: 100%; height: 100%; background: rgb(0, 0, 0); border-radius: 0px; animation: 0.909091s linear -0.495868s infinite spinner-line-fade-default;"></div></div><div style="position: absolute; top: -1px; width: 22px; height: 2px; background: transparent; border-radius: 0px; transform-origin: left center 0px; transform: rotate(196deg) translateX(30px);"><div style="width: 100%; height: 100%; background: rgb(0, 0, 0); border-radius: 0px; animation: 0.909091s linear -0.413223s infinite spinner-line-fade-default;"></div></div><div style="position: absolute; top: -1px; width: 22px; height: 2px; background: transparent; border-radius: 0px; transform-origin: left center 0px; transform: rotate(229deg) translateX(30px);"><div style="width: 100%; height: 100%; background: rgb(0, 0, 0); border-radius: 0px; animation: 0.909091s linear -0.330579s infinite spinner-line-fade-default;"></div></div><div style="position: absolute; top: -1px; width: 22px; height: 2px; background: transparent; border-radius: 0px; transform-origin: left center 0px; transform: rotate(261deg) translateX(30px);"><div style="width: 100%; height: 100%; background: rgb(0, 0, 0); border-radius: 0px; animation: 0.909091s linear -0.247934s infinite spinner-line-fade-default;"></div></div><div style="position: absolute; top: -1px; width: 22px; height: 2px; background: transparent; border-radius: 0px; transform-origin: left center 0px; transform: rotate(294deg) translateX(30px);"><div style="width: 100%; height: 100%; background: rgb(0, 0, 0); border-radius: 0px; animation: 0.909091s linear -0.165289s infinite spinner-line-fade-default;"></div></div><div style="position: absolute; top: -1px; width: 22px; height: 2px; background: transparent; border-radius: 0px; transform-origin: left center 0px; transform: rotate(327deg) translateX(30px);"><div style="width: 100%; height: 100%; background: rgb(0, 0, 0); border-radius: 0px; animation: 0.909091s linear -0.0826446s infinite spinner-line-fade-default;"></div></div></div></div>
+
+    <div class="row ui-content" style="">
+    <div class="ui-edit-area unselectable ui-resizable" style="display: none;">
+        <textarea id="textit" style="display: none;"></textarea><div><div class="toolbar">  <div class="btn-toolbar" role="toolbar" aria-label="Editor toolbar">    <div class="btn-group" role="group">      <a id="makeBold" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Bold">          <i class="fa fa-bold fa-fw"></i>      </a>      <a id="makeItalic" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Italic">          <i class="fa fa-italic fa-fw"></i>      </a>      <a id="makeStrike" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Strikethrough">          <i class="fa fa-strikethrough fa-fw"></i>      </a>      <a id="makeHeader" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Heading">          <i class="fa fa-h1 fa-fw">H</i>      </a>      <a id="makeCode" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Code">          <i class="fa fa-code fa-fw"></i>      </a>      <a id="makeQuote" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Quote">          <i class="fa fa-quote-right fa-fw"></i>      </a>      <a id="makeGenericList" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="List">          <i class="fa fa-list fa-fw"></i>      </a>      <a id="makeOrderedList" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Numbered List">          <i class="fa fa-list-ol fa-fw"></i>      </a>      <a id="makeCheckList" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Check List">          <i class="fa fa-check-square fa-fw"></i>      </a>      <a id="makeLink" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Link">          <i class="fa fa-link fa-fw"></i>      </a>      <a id="makeImage" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Image">          <i class="fa fa-image fa-fw"></i>      </a>      <a id="makeTable" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Table">          <i class="fa fa-table fa-fw"></i>      </a>      <a id="makeLine" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Line">          <i class="fa fa-minus fa-fw"></i>      </a>      <a id="makeComment" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Comment">          <i class="fa fa-comment fa-fw"></i>      </a>    </div>    <span class="btn-group table-tools hidden-xs" style="display: none;">      <span class="separator" style="margin-left: -10px;">|</span>      <span>Row</span>      <a id="insertRow" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Insert Row">          <i class="fa fa-plus-circle fa-fw"></i>      </a>      <a id="deleteRow" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Delete Row">          <i class="fa fa-minus-circle fa-fw"></i>      </a>      <a id="moveRowUp" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Move Row Up">          <i class="fa fa-long-arrow-up fa-fw"></i>      </a>      <a id="moveRowDown" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Move Row Down">          <i class="fa fa-long-arrow-down fa-fw"></i>      </a>      <span>Column</span>      <a id="insertColumn" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Insert Column">          <i class="fa fa-plus-circle fa-fw"></i>      </a>      <a id="deleteColumn" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Delete Column">          <i class="fa fa-minus-circle fa-fw"></i>      </a>      <a id="moveColumnLeft" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Move Column Left">          <i class="fa fa-long-arrow-left fa-fw"></i>      </a>      <a id="moveColumnRight" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Move Column Right">          <i class="fa fa-long-arrow-right fa-fw"></i>      </a>      <span>Alignment</span>      <a id="alignLeft" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Align Left">          <i class="fa fa-align-left fa-fw"></i>      </a>      <a id="alignCenter" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Align Center">          <i class="fa fa-align-center fa-fw"></i>      </a>      <a id="alignRight" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Align Right">          <i class="fa fa-align-right fa-fw"></i>      </a>      <a id="alignNone" class="btn btn-sm btn-dark text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Align None">          <i class="fa fa-ban fa-fw"></i>      </a>    </span>  </div></div><div class="CodeMirror cm-s-one-dark CodeMirror-wrap CodeMirror-overlayscroll" translate="no" style="height: 932px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 377px; left: 372.75px;"><textarea style="position: absolute; bottom: -1em; padding: 0px; width: 1px; height: 1em; outline: none;" wrap="off" autocorrect="off" autocapitalize="none" spellcheck="false" tabindex="0">#4 is degene die overblijft</textarea></div><div class="CodeMirror-overlayscroll-horizontal" cm-not-content="true" style="display: none;"><div></div></div><div class="CodeMirror-overlayscroll-vertical" cm-not-content="true" style="display: block; bottom: 0px;"><div style="height: 10px; top: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1" draggable="true" style="height: 906px;"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 10px; padding-bottom: 0px; margin-bottom: 0px; border-right-width: 50px; min-height: 4357px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation" style="padding-bottom: 884px;"><div style="position: relative; outline: none;" role="presentation"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"><pre class="CodeMirror-line" role="presentation"><span role="presentation"><span class="cm-m-markdown">/cc Rune die </span><span class="cm-m-markdown cm-overlay cm-searching">links</span><span class="cm-m-markdown">boven zijn files opslaat, </span></span></pre></div><div class="CodeMirror-other-cursors"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style=""><div class="CodeMirror-cursor" style="left: 307.75px; top: 540px; height: 22.5px;">&nbsp;</div></div><div class="cursor-menu"><ul class="dropdown-menu CodeMirror-other-cursor" style="left: 0px; position: absolute; z-index: 100; top: 562px; display: none; bottom: auto;" data-line="24" data-ch="27" data-offset-left="0" data-offset-top="22"></ul></div><div class="CodeMirror-code" role="presentation" style=""><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">1</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div><div class="CodeMirror-gutter-elt" style="left: 51px; width: 13px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-header cm-header-1"># Vergadering IX</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">3</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-strong">**Datum:**</span><span class="cm-m-markdown"> 17-03-2025</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">5</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-strong">**Aanwezig:**</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">6</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown">| bestuur | niet-bestuur |</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">7</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown">| ------- | ------------ |</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">8</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown">| Vincent | Jonas &nbsp; &nbsp; &nbsp;  |</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">9</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown">| Axel &nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  |</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">10</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown">| Hannes  | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  |</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">11</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown">| Rune &nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  |</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">12</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown">| Mathieu | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  |</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">13</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown">| Lander  | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  |</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">14</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown">| Xander  | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  |</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">16</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-strong">**Locatie:**</span><span class="cm-m-markdown"> Hannes kot</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">18</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div><div class="CodeMirror-gutter-elt" style="left: 51px; width: 13px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-header cm-header-2">## Agenda</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">19</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">20</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div><div class="CodeMirror-gutter-elt" style="left: 51px; width: 13px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-header cm-header-3">### Vorig verslag mergen. Opmerkingen?</span></span></pre></div><div style="position: relative;" class=""><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">21</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">22</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown">Opmerking:</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">23</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-link">#1</span><span class="cm-m-markdown"> zoek de eerste persoon door te vinden wie er op de juiste plaats staat</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">24</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-link">#2</span><span class="cm-m-markdown"> en </span><span class="cm-m-markdown cm-link">#3</span><span class="cm-m-markdown"> vind je door de puntjes te volgen</span></span></pre></div><div style="position: relative;" class="CodeMirror-activeline"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -65px; width: 65px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">25</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-link">#4</span><span class="cm-m-markdown"> is degene die overblijft</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">26</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">27</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div><div class="CodeMirror-gutter-elt" style="left: 51px; width: 13px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-header cm-header-3">### Financiën</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">28</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">29</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-variable-2">- Subsidies aanvraag</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">30</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp;</span><span class="cm-m-markdown cm-variable-3">- Jan wilt subsidies</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">31</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-variable-2">- Subsidies ideeen</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">32</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp;</span><span class="cm-m-markdown cm-variable-3">- Er is nog 825 euro beschikbaar om uit te geven aan events. Rune heeft dit bedrag rechtsboven gelegd. Na dat hij klaar is met de CSCBE</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">33</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-variable-2">- Voor de bocca kan er gesponserd worden</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">34</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp;</span><span class="cm-m-markdown cm-variable-3">- Hannes was </span><span class="cm-m-markdown cm-variable-3 cm-overlay cm-searching">links</span><span class="cm-m-markdown cm-variable-3">boven aan het wachten op de bocca, dan is de sysadmin </span><span class="cm-m-markdown cm-variable-3 cm-link">#2</span><span class="cm-m-markdown cm-variable-3"> komen helpen</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">35</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-variable-2">- Voor het zeusprotocol of keep talking: als je een challenge oplost dan krijg je eten of iets anders dat je kunt meenemen naar huis. Xander wilt alles mee naar huis nemen, zeker iets voor de stekker putten mee te fixen</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">36</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp;</span><span class="cm-m-markdown cm-variable-3">- Zeus USB stick met linux op</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">37</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">38</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-variable-2">- Merch</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">39</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp;</span><span class="cm-m-markdown cm-variable-3">- Dit is de taak van Vincent. Ideaal zouden al zo snel mogelijk een template hebben. </span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">40</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">41</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp;</span><span class="cm-m-markdown cm-variable-3">- Ja</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">42</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-markdown cm-keyword">- Trui/T-shirt (gelijk vorig jaar)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">43</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-markdown cm-keyword">- sokken (als we aan minimum 50 paren komen)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">44</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp;</span><span class="cm-m-markdown cm-variable-3">- Misschien</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">45</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-markdown cm-keyword">- pet (de kleur is nog een discussie)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">46</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-markdown cm-keyword">- lanyard (misschien iets om gratis bij events te geven)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">47</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-variable-2">- Zeus Sponsors</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">48</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp;</span><span class="cm-m-markdown cm-variable-3">- Geven we terug iets terug?</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">49</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-markdown cm-keyword">- Lander wilt hiervoor wel kijken. Eerst gaat hij nog meedoen met Code &amp; Pass</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">50</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">51</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div><div class="CodeMirror-gutter-elt" style="left: 51px; width: 13px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-header cm-header-3">### Sysadmin</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">52</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">53</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-variable-2">- Router</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">54</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp;</span><span class="cm-m-markdown cm-variable-3">- Er is genoeg geld, dus (Xander) wilt liefst een (iets duurdere) maar (open source) deftige router.</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">55</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-markdown cm-keyword">- Er zou wel goede be-argumentering nodig zijn. </span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">56</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-markdown cm-variable-2">- Geen china</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">57</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-markdown cm-variable-3">- OpenWRT?</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">58</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-markdown cm-variable-3">- Xander is paranoia voor de router, mathieu is rechtshandig als die beneden is, jan wilt NERF fight doen</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">59</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-markdown cm-keyword">- China mag mn data hebben (heeft het wss al) (ze hebben ook onlangs mathieu gekidnapt)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">60</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-markdown cm-variable-2">- Open source hardware is nicer voor betere long term support.</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -65px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 35px;">61</div><div class="CodeMirror-gutter-elt" style="left: 43px; width: 8px;"><div class="authorship-gutter authorship-gutter-bae845" title="" data-original-title="runo"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-m-markdown cm-variable-2">- Domeinnamen</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 50px; width: 1px; border-bottom: 0px solid transparent; top: 4357px;"></div><div class="CodeMirror-gutters" style="height: 4407px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 43px;"></div><div class="CodeMirror-gutter authorship-gutters"></div><div class="CodeMirror-gutter CodeMirror-foldgutter"></div></div></div><div style="position: absolute; right: 0px; top: 0px; z-index: 7; pointer-events: none;"><div style="position: absolute; right: 0px; width: 15px;" class="CodeMirror-search-match"></div></div></div><div class="status-bar">    <div class="status-info">        <div class="status-cursor">          <span class="status-line-column">Line 25, Column 28</span>          <span class="status-selection"></span>        </div>        <div class="status-file"> — 141 Lines</div>    </div>    <div class="status-indicators">        <div class="status-length" style="color: white;" title="You can write up to 100000 characters in this document.">Length 4772</div>        <div class="status-preferences dropup toggle-dropdown pull-right">            <a id="preferencesLabel" class="ui-preferences-label text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Click to change preferences">                <i class="fa fa-wrench fa-fw"></i>            </a>            <ul class="dropdown-menu" aria-labelledby="preferencesLabel">                <li class="ui-preferences-override-browser-keymap"><a><label>Allow override browser keymap&nbsp;&nbsp;<input type="checkbox"></label></a></li>            </ul>        </div>        <div class="status-keymap dropup pull-right">            <a id="keymapLabel" class="ui-keymap-label text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Click to change keymap">sublime</a>            <ul class="dropdown-menu" aria-labelledby="keymapLabel">                <li class="ui-keymap-sublime"><a>Sublime</a></li>                <li class="ui-keymap-emacs"><a>Emacs</a></li>                <li class="ui-keymap-vim"><a>Vim</a></li>            </ul>        </div>        <div class="status-indent">            <div class="indent-type" title="Click to switch indentation type">Spaces:</div>            <div class="indent-width-label" title="Click to change indentation size">4</div>            <input class="indent-width-input hidden" type="number" min="1" max="10" maxlength="2" size="2">        </div>        <div class="status-theme dropup">            <a id="themeLabel" class="ui-theme-label text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Select theme">                <i class="fa fa-paint-brush fa-fw"></i>            </a>            <ul class="dropdown-menu" aria-labelledby="themeLabel" style="overflow: auto; max-height: 847px;">            <li value="default"><a>Light</a></li><li value="one-dark" class="active"><a>One Dark (Default)</a></li><li value="monokai"><a>Monokai</a></li><li value="solarized dark"><a>Solarized Dark</a></li><li value="solarized light"><a>Solarized Light</a></li><li value="dracula"><a>Dracula</a></li><li value="material"><a>Material</a></li><li value="nord"><a>Nord</a></li><li value="panda-syntax"><a>Panda</a></li><li value="ayu-dark"><a>Ayu Dark</a></li><li value="ayu-mirage"><a>Ayu Mirage</a></li><li value="tomorrow-night-bright"><a>Tomorror Night Bright</a></li><li value="tomorrow-night-eighties"><a>Tomorror Night Eighties</a></li></ul>        </div>        <div class="status-spellcheck dropup pull-right">            <a class="ui-spellcheck-toggle active" title="Toggle spellcheck" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">                <i class="fa fa-check fa-fw"></i>                <span class="spellcheck-lang"></span>            </a>            <ul class="dropdown-menu" aria-labelledby="themeLabel">                <li value="disabled"><a>Disabled</a></li>            <li value="en_US"><a>English (United States)</a></li><li value="en_GB"><a>English (United Kingdom)</a></li><li value="de"><a>German</a></li><li value="de_AT"><a>German (Austria)</a></li><li value="de_CH"><a>German (Switzerland)</a></li></ul>        </div>        <div class="status-linter">            <a class="ui-linter-toggle" title="Toggle linter"><i class="fa fa-lightbulb-o fa-fw"></i></a>        </div>    </div></div></div>
+    <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: none;"><button class="btn btn-lg btn-default ui-sync-toggle" title="Toggle sync scrolling" style="display: none;"><i class="fa fa-link fa-fw"></i></button></div></div>
+    <div class="ui-view-area">
+        <div class="ui-infobar container-fluid unselectable hidden-print">
+            <small>
+                <span>
+                    <span class="ui-lastchangeuser" style=""> <i class="ui-user-icon small" data-toggle="tooltip" data-placement="right" data-original-title="runo" title="" style="background-image:url(https://codimd.zeus.gent/user/runo/avatar.svg)"></i></span>
+                    <span class="ui-no-lastchangeuser" style="display: none;"> <i class="fa fa-clock-o fa-fw" style="width: 18px;"></i></span>
+                    &nbsp;<span class="text-uppercase ui-status-lastchange">changed</span>
+                    <span class="ui-lastchange text-uppercase" title="Thu, Apr 3, 2025 10:15 PM">in a few seconds</span>
+                </span>
+                <span class="ui-permission dropdown pull-right">
+                    <a id="permissionLabelFreely" class="ui-permission-label text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="display: none;" title="Anyone can edit"><i class="fa fa-leaf"></i> Freely <i class="ui-permission-caret-down fa fa-caret-down" style=""></i></a>
+                    <a id="permissionLabelEditable" class="ui-permission-label text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="" title="Signed-in people can edit"><i class="fa fa-shield fa-fw"></i> Editable <i class="ui-permission-caret-down fa fa-caret-down" style=""></i></a>
+                    <a id="permissionLabelLimited" class="ui-permission-label text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="display: none;" title="Signed-in people can edit (forbid guests)"><i class="fa fa-id-card fa-fw"></i> Limited <i class="ui-permission-caret-down fa fa-caret-down" style=""></i></a>
+                    <a id="permissionLabelLocked" class="ui-permission-label text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="display: none;" title="Only owner can edit"><i class="fa fa-lock fa-fw"></i> Locked <i class="ui-permission-caret-down fa fa-caret-down" style=""></i></a>
+                    <a id="permissionLabelProtected" class="ui-permission-label text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="display: none;" title="Only owner can edit (forbid guests)"><i class="fa fa-umbrella fa-fw"></i> Protected <i class="ui-permission-caret-down fa fa-caret-down" style=""></i></a>
+                    <a id="permissionLabelPrivate" class="ui-permission-label text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="display: none;" title="Only owner can view &amp; edit"><i class="fa fa-hand-stop-o fa-fw"></i> Private <i class="ui-permission-caret-down fa fa-caret-down" style=""></i></a>
+                    <ul class="dropdown-menu" aria-labelledby="permissionLabelFreely permissionLabelEditable permissionLabelLimited permissionLabelLocked permissionLabelProtected permissionLabelPrivate">
+                        <li class="ui-permission-freely"><a><i class="fa fa-leaf fa-fw"></i> Freely - Anyone can edit</a></li>
+                        <li class="ui-permission-editable"><a><i class="fa fa-shield fa-fw"></i> Editable - Signed-in people can edit</a></li>
+                        <li class="ui-permission-limited"><a><i class="fa fa-id-card fa-fw"></i> Limited - Signed-in people can edit (forbid guests)</a></li>
+                        <li class="ui-permission-locked"><a><i class="fa fa-lock fa-fw"></i> Locked - Only owner can edit</a></li>
+                        <li class="ui-permission-protected"><a><i class="fa fa-umbrella fa-fw"></i> Protected - Only owner can edit (forbid guests)</a></li>
+                        <li class="ui-permission-private"><a><i class="fa fa-hand-stop-o fa-fw"></i> Private - Only owner can view &amp; edit</a></li>
+                        <li class="divider"></li>
+                        <li class="ui-delete-note"><a><i class="fa fa-trash-o fa-fw"></i> Delete this note</a></li>
+                    </ul>
+                </span>
+                <br>
+                <span class="ui-owner" style="display: none;">
+                     <i class="ui-user-icon small" data-toggle="tooltip" data-placement="right" data-original-title="runo" title="" style="background-image:url(https://codimd.zeus.gent/user/runo/avatar.svg)"></i>
+                    &nbsp;<span class="text-uppercase">owned this note</span>
+                </span>
+            </small>
+        </div>
+        <div id="doc" class="markdown-body container-fluid"><h1 class="part" data-startline="1" data-endline="1" id="Vergadering-IX"><a class="anchor hidden-xs" href="#Vergadering-IX" title="Vergadering-IX" smoothhashscroll=""><i class="fa fa-link"></i></a>Vergadering IX</h1><p class="part" data-startline="3" data-endline="3"><strong>Datum:</strong> 17-03-2025</p><p class="part" data-startline="5" data-endline="5"><strong>Aanwezig:</strong></p><table class="part" data-startline="6" data-endline="14">
+<thead>
+<tr>
+<th>bestuur</th>
+<th>niet-bestuur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vincent</td>
+<td>Jonas</td>
+</tr>
+<tr>
+<td>Axel</td>
+<td></td>
+</tr>
+<tr>
+<td>Hannes</td>
+<td></td>
+</tr>
+<tr>
+<td>Rune</td>
+<td></td>
+</tr>
+<tr>
+<td>Mathieu</td>
+<td></td>
+</tr>
+<tr>
+<td>Lander</td>
+<td></td>
+</tr>
+<tr>
+<td>Xander</td>
+<td></td>
+</tr>
+</tbody>
+</table><p class="part" data-startline="16" data-endline="16"><strong>Locatie:</strong> Hannes kot</p><h2 class="part" data-startline="18" data-endline="18" id="Agenda"><a class="anchor hidden-xs" href="#Agenda" title="Agenda" smoothhashscroll=""><i class="fa fa-link"></i></a>Agenda</h2><h3 class="part" data-startline="20" data-endline="20" id="Vorig-verslag-mergen-Opmerkingen"><a class="anchor hidden-xs" href="#Vorig-verslag-mergen-Opmerkingen" title="Vorig-verslag-mergen-Opmerkingen" smoothhashscroll=""><i class="fa fa-link"></i></a>Vorig verslag mergen. Opmerkingen?</h3><p class="part" data-startline="22" data-endline="25">Opmerking:<br>
+#1 zoek de eerste persoon door te vinden wie er op de juiste plaats staat<br>
+#2 en #3 vind je door de puntjes te volgen<br>
+#4 is degene die overblijft</p><h3 class="part" data-startline="27" data-endline="27" id="Financiën"><a class="anchor hidden-xs" href="#Financiën" title="Financiën" smoothhashscroll=""><i class="fa fa-link"></i></a>Financiën</h3><ul class="part" data-startline="29" data-endline="50">
+<li class="" data-startline="26" data-endline="27">
+<p>Subsidies aanvraag</p>
+<ul>
+<li class="" data-startline="27" data-endline="27">Jan wilt subsidies</li>
+</ul>
+</li>
+<li class="" data-startline="28" data-endline="29">
+<p>Subsidies ideeen</p>
+<ul>
+<li class="" data-startline="29" data-endline="29">Er is nog 825 euro 
+beschikbaar om uit te geven aan events. Rune heeft dit bedrag 
+rechtsboven gelegd. Na dat hij klaar is met de CSCBE</li>
+</ul>
+</li>
+<li class="" data-startline="30" data-endline="31">
+<p>Voor de bocca kan er gesponserd worden</p>
+<ul>
+<li class="" data-startline="31" data-endline="31">Hannes was linksboven aan het wachten op de bocca, dan is de sysadmin #2 komen helpen</li>
+</ul>
+</li>
+<li class="" data-startline="32" data-endline="34">
+<p>Voor het zeusprotocol of keep talking: als je een challenge oplost 
+dan krijg je eten of iets anders dat je kunt meenemen naar huis. Xander 
+wilt alles mee naar huis nemen, zeker iets voor de stekker putten mee te
+ fixen</p>
+<ul>
+<li class="" data-startline="33" data-endline="34">Zeus USB stick met linux op</li>
+</ul>
+</li>
+<li class="" data-startline="35" data-endline="43">
+<p>Merch</p>
+<ul>
+<li class="" data-startline="36" data-endline="37">
+<p>Dit is de taak van Vincent. Ideaal zouden al zo snel mogelijk een template hebben.</p>
+</li>
+<li class="" data-startline="38" data-endline="40">
+<p>Ja</p>
+<ul>
+<li class="" data-startline="39" data-endline="39">Trui/T-shirt (gelijk vorig jaar)</li>
+<li class="" data-startline="40" data-endline="40">sokken (als we aan minimum 50 paren komen)</li>
+</ul>
+</li>
+<li class="" data-startline="41" data-endline="43">
+<p>Misschien</p>
+<ul>
+<li class="" data-startline="42" data-endline="42">pet (de kleur is nog een discussie)</li>
+<li class="" data-startline="43" data-endline="43">lanyard (misschien iets om gratis bij events te geven)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="" data-startline="44" data-endline="47">
+<p>Zeus Sponsors</p>
+<ul>
+<li class="" data-startline="45" data-endline="47">Geven we terug iets terug?
+<ul>
+<li class="" data-startline="46" data-endline="47">Lander wilt hiervoor wel kijken. Eerst gaat hij nog meedoen met Code &amp; Pass</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h3 class="part" data-startline="51" data-endline="51" id="Sysadmin"><a class="anchor hidden-xs" href="#Sysadmin" title="Sysadmin" smoothhashscroll=""><i class="fa fa-link"></i></a>Sysadmin</h3><ul class="part" data-startline="53" data-endline="74">
+<li class="" data-startline="50" data-endline="57">
+<p>Router</p>
+<ul>
+<li class="" data-startline="51" data-endline="57">Er is genoeg geld, dus (Xander) wilt liefst een (iets duurdere) maar (open source) deftige router.
+<ul>
+<li class="" data-startline="52" data-endline="55">Er zou wel goede be-argumentering nodig zijn.
+<ul>
+<li class="" data-startline="53" data-endline="55">Geen china
+<ul>
+<li class="" data-startline="54" data-endline="54">OpenWRT?</li>
+<li class="" data-startline="55" data-endline="55">Xander is paranoia voor de router, mathieu is rechtshandig als die beneden is, jan wilt NERF fight doen</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="" data-startline="56" data-endline="57">China mag mn data hebben (heeft het wss al) (ze hebben ook onlangs mathieu gekidnapt)
+<ul>
+<li class="" data-startline="57" data-endline="57">Open source hardware is nicer voor betere long term support.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="" data-startline="58" data-endline="63">
+<p>Domeinnamen</p>
+<ul>
+<li class="" data-startline="59" data-endline="61">zeus.gent en <a href="http://urenloop.be/" target="_blank" rel="noopener">urenloop.be</a> overzetten op netim.
+<ul>
+<li class="" data-startline="60" data-endline="60">voordeel van netim is dat het zowel .be en .gent domeinen aanbiedt.</li>
+<li class="" data-startline="61" data-endline="61">transfer is 9 euro + 27 euro.</li>
+</ul>
+</li>
+<li class="" data-startline="62" data-endline="63">Tybo wilt zelf een domeinnaam kopen en die linksonder opslaan, dan gaat hij spaghetti eten</li>
+</ul>
+</li>
+<li class="" data-startline="64" data-endline="67">
+<p>Hydra</p>
+<ul>
+<li class="" data-startline="65" data-endline="65">Nico nog eens pingen naar een status</li>
+<li class="" data-startline="66" data-endline="67">Axel zou best owner worden van het linksondere deel van de app, na dat de sponsors zijn geregeld</li>
+</ul>
+</li>
+<li class="" data-startline="68" data-endline="71">
+<p>Hierarchie</p>
+<ul>
+<li class="" data-startline="69" data-endline="69">Xander zou als tweede sys blijven volgend academiejaar</li>
+<li class="" data-startline="70" data-endline="71">De persoon die eerst genoteerd is van het bestuur die aanwezig is heeft dit goedgekeurd</li>
+</ul>
+</li>
+</ul><h3 class="part" data-startline="75" data-endline="75" id="Projecten"><a class="anchor hidden-xs" href="#Projecten" title="Projecten" smoothhashscroll=""><i class="fa fa-link"></i></a>Projecten</h3><p class="part" data-startline="77" data-endline="77">Ni(x|ks), tybo heeft ideeen</p><h3 class="part" data-startline="79" data-endline="79" id="Events"><a class="anchor hidden-xs" href="#Events" title="Events" smoothhashscroll=""><i class="fa fa-link"></i></a>Events</h3><p class="part" data-startline="81" data-endline="81">Evenementen
+ op dinsdag zijn minder ideaal voor eerstejaars omdat ze dit jaar op 
+dinsdag enkel werkcolleges hebben. Stout, ga naar les, Rune had les 
+rechtsbeneden, hij wou daar minecraft spelen</p><h4 class="part" data-startline="83" data-endline="83" id="Gepasseerd"><a class="anchor hidden-xs" href="#Gepasseerd" title="Gepasseerd" smoothhashscroll=""><i class="fa fa-link"></i></a>Gepasseerd</h4><ul class="part" data-startline="85" data-endline="102">
+<li class="" data-startline="80" data-endline="82">NER.F
+<ul>
+<li class="" data-startline="81" data-endline="81">Zeus vs VVN, Jan vs. Tybo</li>
+<li class="" data-startline="82" data-endline="82">Hannes zat rechtsboven verstopt voor een verassingsaanval in NERF, shame on him, volgende vergadering straf</li>
+</ul>
+</li>
+<li class="" data-startline="83" data-endline="87">CTF
+<ul>
+<li class="" data-startline="84" data-endline="84">Goed platform (CTFd)</li>
+<li class="" data-startline="85" data-endline="85">CSCBE challenges gebruikt :goed:</li>
+<li class="" data-startline="86" data-endline="86">Wel wat meer informatie omtrent de CSCBE.</li>
+<li class="" data-startline="87" data-endline="87">Axel zat linksboven om de challenges op te lossen, dacht dat hij een DSA award kon krijgen zo</li>
+</ul>
+</li>
+<li class="" data-startline="88" data-endline="97">Code &amp; Pass
+<ul>
+<li class="" data-startline="89" data-endline="89">Goed idee</li>
+<li class="" data-startline="90" data-endline="90">Test run</li>
+<li class="" data-startline="91" data-endline="95">Verschillende gamemodes
+<ul>
+<li class="" data-startline="92" data-endline="92">Prompt -&gt; code -&gt; prompt -&gt; code</li>
+<li class="" data-startline="93" data-endline="93">Wat het nu was</li>
+<li class="" data-startline="94" data-endline="94">Deeltjes van de tekst weg</li>
+<li class="" data-startline="95" data-endline="95">Jan vond dat het beter kon</li>
+</ul>
+</li>
+<li class="" data-startline="96" data-endline="97">Volgend jaar opnieuw met betere versie</li>
+</ul>
+</li>
+</ul><h4 class="part" data-startline="103" data-endline="103" id="Aankomende"><a class="anchor hidden-xs" href="#Aankomende" title="Aankomende" smoothhashscroll=""><i class="fa fa-link"></i></a>Aankomende</h4><ul class="part" data-startline="105" data-endline="117">
+<li class="" data-startline="102" data-endline="105">Spaghetti
+<ul>
+<li class="" data-startline="103" data-endline="103">Je krijgt punten voor stijl, usability en efficiency.</li>
+<li class="" data-startline="104" data-endline="104">Er zijn al voorbeeld oplossingen</li>
+<li class="" data-startline="105" data-endline="105">Mathieu gaat hieraan verder werken in de locatie van de vergadering</li>
+</ul>
+</li>
+<li class="" data-startline="106" data-endline="109">Cuda
+<ul>
+<li class="" data-startline="107" data-endline="107">eerst wat babbelen, dan live code, dan wat challenges</li>
+<li class="" data-startline="108" data-endline="108">instructies remote coding cuda: schriftelijk</li>
+<li class="" data-startline="109" data-endline="109">bericht sturen naar Dawyndt</li>
+</ul>
+</li>
+<li class="" data-startline="110" data-endline="111">Keep Talking
+<ul>
+<li class="" data-startline="111" data-endline="111">Staat al ver, enkel nog CSS</li>
+</ul>
+</li>
+<li class="" data-startline="112" data-endline="114">Zeusprotocol
+<ul>
+<li class="" data-startline="113" data-endline="114">we beginnen er dit weekend aan met Vincent die rechtsbeneden zal vinden</li>
+</ul>
+</li>
+</ul><h3 class="part" data-startline="118" data-endline="118" id="Algemeen"><a class="anchor hidden-xs" href="#Algemeen" title="Algemeen" smoothhashscroll=""><i class="fa fa-link"></i></a>Algemeen</h3><ul class="part" data-startline="120" data-endline="131">
+<li class="" data-startline="117" data-endline="120">stekker putten
+<ul>
+<li class="" data-startline="118" data-endline="118">Ambetant</li>
+<li class="" data-startline="119" data-endline="119">Als er een oplossing is dan go ahead.</li>
+<li class="" data-startline="120" data-endline="120">Tybo zal dit fixen</li>
+</ul>
+</li>
+<li class="" data-startline="121" data-endline="122">CSCBE
+<ul>
+<li class="" data-startline="122" data-endline="122">proficiat, francis ook proficiat, hij krijgt wat merch van zeus</li>
+</ul>
+</li>
+<li class="" data-startline="123" data-endline="125">MC
+<ul>
+<li class="" data-startline="124" data-endline="124">donderdag, misschien iets van minigame</li>
+<li class="" data-startline="125" data-endline="125">Xander wilt ook meedoen maar hij moest iets van china bestellen</li>
+</ul>
+</li>
+<li class="" data-startline="126" data-endline="128">DSA Awards
+<ul>
+<li class="" data-startline="127" data-endline="128">Francis gaat mee! Hij wou toch mee nu de projecten werden afgewerkt</li>
+</ul>
+</li>
+</ul><h3 class="part" data-startline="132" data-endline="132" id="Volgende-vergadering"><a class="anchor hidden-xs" href="#Volgende-vergadering" title="Volgende-vergadering" smoothhashscroll=""><i class="fa fa-link"></i></a>Volgende vergadering</h3><p class="part" data-startline="134" data-endline="134">Op 21 april 19u (maandagavond na de paasvakantie), Axel gaat er ni zjin door subsidie-aanvraag</p><h4 class="part" data-startline="136" data-endline="136" id="Hoofding-bestuur-updaten"><a class="anchor hidden-xs" href="#Hoofding-bestuur-updaten" title="Hoofding-bestuur-updaten" smoothhashscroll=""><i class="fa fa-link"></i></a>Hoofding ~bestuur updaten</h4><h3 class="part" data-startline="138" data-endline="138" id="Varia"><a class="anchor hidden-xs" href="#Varia" title="Varia" smoothhashscroll=""><i class="fa fa-link"></i></a>Varia</h3><p class="part" data-startline="140" data-endline="141">/cc @bestuur<br>
+/cc Rune die linksboven zijn files opslaat,</p></div>
+        <div class="ui-toc dropup unselectable hidden-print scrollspy-view" style="right: 596px; display: none;">
+            <div class="pull-right dropdown">
+                <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel"><div class="toc"><ul class="nav">
+<li class="active"><a href="#Vergadering-IX" title="Vergadering IX" smoothhashscroll="">Vergadering IX</a><ul class="nav">
+<li><a href="#Agenda" title="Agenda" smoothhashscroll="">Agenda</a><ul class="nav">
+<li><a href="#Vorig-verslag-mergen-Opmerkingen" title="Vorig verslag mergen. Opmerkingen?" smoothhashscroll="">Vorig verslag mergen. Opmerkingen?</a></li>
+<li><a href="#Financiën" title="Financiën" smoothhashscroll="">Financiën</a></li>
+<li><a href="#Sysadmin" title="Sysadmin" smoothhashscroll="">Sysadmin</a></li>
+<li><a href="#Projecten" title="Projecten" smoothhashscroll="">Projecten</a></li>
+<li><a href="#Events" title="Events" smoothhashscroll="">Events</a></li>
+<li><a href="#Algemeen" title="Algemeen" smoothhashscroll="">Algemeen</a></li>
+<li><a href="#Volgende-vergadering" title="Volgende vergadering" smoothhashscroll="">Volgende vergadering</a></li>
+<li><a href="#Varia" title="Varia" smoothhashscroll="">Varia</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu" style="">
+    <a class="expand-toggle expand-all" href="#">Expand all</a>
+    <a class="expand-toggle collapse-all" href="#" style="display: none;">Collapse all</a>
+    <a class="back-to-top" href="#">Back to top</a>
+    <a class="go-to-bottom" href="#">Go to bottom</a>
+</div></ul>
+            </div>
+        </div>
+        <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print scrollspy-body affix" data-spy="affix" style="top: 51px; left: 1329px; width: 581px;"><div class="toc"><ul class="nav">
+<li class="active"><a href="#Vergadering-IX" title="Vergadering IX" smoothhashscroll="">Vergadering IX</a><ul class="nav">
+<li><a href="#Agenda" title="Agenda" smoothhashscroll="">Agenda</a><ul class="nav">
+<li><a href="#Vorig-verslag-mergen-Opmerkingen" title="Vorig verslag mergen. Opmerkingen?" smoothhashscroll="">Vorig verslag mergen. Opmerkingen?</a></li>
+<li><a href="#Financiën" title="Financiën" smoothhashscroll="">Financiën</a></li>
+<li><a href="#Sysadmin" title="Sysadmin" smoothhashscroll="">Sysadmin</a></li>
+<li><a href="#Projecten" title="Projecten" smoothhashscroll="">Projecten</a></li>
+<li><a href="#Events" title="Events" smoothhashscroll="">Events</a></li>
+<li><a href="#Algemeen" title="Algemeen" smoothhashscroll="">Algemeen</a></li>
+<li><a href="#Volgende-vergadering" title="Volgende vergadering" smoothhashscroll="">Volgende vergadering</a></li>
+<li><a href="#Varia" title="Varia" smoothhashscroll="">Varia</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu" style="">
+    <a class="expand-toggle expand-all" href="#">Expand all</a>
+    <a class="expand-toggle collapse-all" href="#" style="display: none;">Collapse all</a>
+    <a class="back-to-top" href="#">Back to top</a>
+    <a class="go-to-bottom" href="#">Go to bottom</a>
+</div></div>
+    </div>
+</div>
+<!-- toc menu -->
+<div class="toc-menu" style="display: none;">
+    <a class="expand-toggle expand-all" href="#">Expand all</a>
+    <a class="expand-toggle collapse-all" href="#" style="display: none;">Collapse all</a>
+    <a class="back-to-top" href="#">Back to top</a>
+    <a class="go-to-bottom" href="#">Go to bottom</a>
+</div>
+<!-- clipboard modal -->
+<div class="modal fade" id="clipboardModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Import from clipboard</h4>
+            </div>
+            <div class="modal-body">
+                <div contenteditable="" data-ph="Paste your markdown or webpage here…" id="clipboardModalContent" style="overflow:auto;max-height:50vh"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="clipboardModalClear">Clear</button>
+                <button type="button" class="btn btn-primary" id="clipboardModalConfirm">Import</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- locked modal -->
+<div class="modal fade locked-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-lock"></i> This note is locked</h4>
+            </div>
+            <div class="modal-body" style="color:black;">
+                <h5>Sorry, only the owner can edit this note.</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- limit modal -->
+<div class="modal fade limit-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-exclamation-triangle"></i> Reach the limit</h4>
+            </div>
+            <div class="modal-body" style="color:black;">
+                <h5>Sorry, you've reached the maximum length this note can be.</h5>
+                <strong>Please shorten the note.</strong>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- message modal -->
+<div class="modal fade message-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body" style="color:black;">
+                <h5></h5>
+                <a target="_blank" rel="noopener" style="word-break: break-all;"></a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- gist import modal -->
+<div class="modal fade" id="gistImportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Import from Gist</h4>
+            </div>
+            <div class="modal-body">
+                <input type="url" class="form-control" placeholder="Paste your gist url here… (like: https://gist.github.com/username/gistid)" id="gistImportModalContent">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="gistImportModalClear">Clear</button>
+                <button type="button" class="btn btn-primary" id="gistImportModalConfirm">Import</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- snippet import modal -->
+<div class="modal fade" id="snippetImportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Import from Snippet</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="snippetImportModalAccessToken">
+                <input type="hidden" id="snippetImportModalBaseURL">
+                <input type="hidden" id="snippetImportModalVersion">
+                <div class="ui-field-contain" style="display:table;margin-bottom:10px;width:100%;">
+                    <div style="display:table-row;margin-bottom:5px;">
+                        <label style="display:table-cell;">Project:</label>
+                        <select class="form-control" id="snippetImportModalProjects" style="display:table-cell;" disabled="disabled">
+                            <option value="init" selected="selected" disabled="disabled">Select From Available Projects</option>
+                        </select>
+                    </div>
+                    <div style="display:table-row;">
+                        <label style="display:table-cell;">Snippet</label>
+                        <select class="form-control" id="snippetImportModalSnippets" style="display:table-cell;" disabled="disabled">
+                            <option value="init" selected="selected" disabled="disabled">Select From Available Snippets</option>
+                        </select>
+                    </div>
+                </div>
+                <p class="snippet-import-or">OR</p>
+                <input type="url" class="form-control" placeholder="/projects/:id/snippets/:snippet_id" id="snippetImportModalContent" disabled="disabled">
+            </div>
+            <div class="modal-footer">
+                <span id="snippetImportModalLoading"><i class="fa fa-refresh fa-spin fa-fw"></i></span>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="snippetImportModalClear">Clear</button>
+                <button type="button" class="btn btn-primary" id="snippetImportModalConfirm" disabled="disabled">Import</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- snippet export modal -->
+<div class="modal fade" id="snippetExportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Export to Snippet</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="snippetExportModalAccessToken">
+                <input type="hidden" id="snippetExportModalBaseURL">
+                <input type="hidden" id="snippetExportModalVersion">
+                <div class="ui-field-contain" style="display:table;margin-bottom:10px;width:100%;">
+                    <div style="display:table-row;margin-bottom:5px;">
+                        <label style="display:table-cell;">Title:</label>
+                        <input class="form-control" placeholder="new snippet" type="text" id="snippetExportModalTitle">
+                    </div>
+                    <div style="display:table-row;margin-bottom:5px;">
+                        <label style="display:table-cell;">File Name:</label>
+                        <input class="form-control" placeholder="new_snippet.md" type="text" id="snippetExportModalFileName">
+                    </div>
+                    <div style="display:table-row;margin-bottom:5px;">
+                        <label style="display:table-cell;">Project:</label>
+                        <select class="form-control" id="snippetExportModalProjects" style="display:table-cell;">
+                            <option value="init" selected="selected" disabled="disabled">Select From Available Projects</option>
+                        </select>
+                    </div>
+                    <div style="display:table-row;margin-bottom:5px;">
+                        <label style="display:table-cell;">Visibility:</label>
+                        <select class="form-control" id="snippetExportModalVisibility" style="display:table-cell;">
+                            <option value="" selected="selected" disabled="disabled">Select Visibility Level</option>
+                            <option value="0">Private</option>
+                            <option value="10">Internal</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span id="snippetExportModalLoading"><i class="fa fa-refresh fa-spin fa-fw"></i></span>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="snippetExportModalConfirm">Export</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- delete modal -->
+<div class="modal fade delete-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Are you sure?</h4>
+            </div>
+            <div class="modal-body">
+                <h5 class="ui-delete-modal-msg">Do you really want to delete this note?</h5>
+                <strong class="ui-delete-modal-item">All users will lose their connection.</strong>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger ui-delete-modal-confirm">Yes, do it!</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- refresh modal -->
+<div class="modal fade" id="refreshModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">This page needs to be refreshed</h4>
+            </div>
+            <div class="modal-body">
+                <div class="incompatible-version">
+                    <h5>Your client's version is incompatible.</h5>
+                    <strong>Refresh to update.</strong>
+                </div>
+                <div class="new-version" style="display:none;">
+                    <h5>New version available!</h5>
+                    <a href="https://codimd.zeus.gent/s/release-notes" target="_blank" rel="noopener">See releases notes here</a>
+                    <br>
+                    <strong>Refresh to enjoy new features.</strong>
+                </div>
+                <div class="user-state-changed" style="display:none;">
+                    <h5>Your user state has changed.</h5>
+                    <strong>Refresh to load new user state.</strong>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="refreshModalRefresh">Refresh</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- signin modal -->
+<div class="modal fade signin-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="mySmallModalLabel">Choose method</h4>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <a href="https://codimd.zeus.gent/auth/oauth2" class="btn btn-lg btn-block btn-login-method btn-soundcloud">
+                    <i class="fa fa-mail-forward"></i> Sign in via Zeus
+                </a>
+                
+                
+                
+                
+                
+                
+                <hr>
+                
+                
+                <h4>Sign in via E-Mail</h4>
+                <form data-toggle="validator" role="form" class="form-horizontal" method="post" enctype="application/x-www-form-urlencoded" novalidate="true">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="email" class="form-control" name="email" placeholder="E-Mail" required="">
+                            <span class="help-block control-label with-errors" style="display: inline;"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="password" class="form-control" name="password" placeholder="Password" required="">
+                            <span class="help-block control-label with-errors" style="display: inline;"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-primary disabled" formaction="https://codimd.zeus.gent/login">Sign In</button>
+                            
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- help modal -->
+<div class="modal fade help-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="mySmallModalLabel"><i class="fa fa-question-circle"></i> Help</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Contacts</h3>
+                            </div>
+                            <div class="panel-body">
+                                <a href="https://github.com/hackmdio/codimd/issues" target="_blank"><i class="fa fa-tag fa-fw"></i> Report an issue</a>
+                                <br>
+                                <a href="https://gitter.im/hackmdio/hackmd" target="_blank"><i class="fa fa-hashtag fa-fw"></i> Meet us on Gitter</a>
+                                <br>
+                                <a href="https://poeditor.com/join/project/q0nuPWyztp" target="_blank"><i class="fa fa-language fa-fw"></i> Help us translating on POEditor</a>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Documents</h3>
+                            </div>
+                            <div class="panel-body">
+                                <a href="https://codimd.zeus.gent/features" title="Features" target="_blank"><i class="fa fa-dot-circle-o fa-fw"></i> Features</a>
+                                <br>
+                                <a href="https://codimd.zeus.gent/yaml-metadata" title="YAML Metadata" target="_blank"><i class="fa fa-dot-circle-o fa-fw"></i> YAML Metadata</a>
+                                <br>
+                                <a href="https://codimd.zeus.gent/slide-example" title="Slide Example" target="_blank"><i class="fa fa-dot-circle-o fa-fw"></i> Slide Example</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Cheatsheet</h3>
+                            </div>
+                            <div class="panel-body" style="height: calc(100vh - 215px); overflow: auto;">
+                                <table class="table table-condensed table-cheatsheet">
+                                    <thead>
+                                        <tr>
+                                            <th>Example</th>
+                                            <th>Syntax</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="markdown-body" style="font-family: inherit; font-size: 14px; padding: 0; max-width: inherit;">
+                                        <tr>
+                                            <td>Header</td>
+                                            <td># Header</td>
+                                        </tr>
+                                        <tr>
+                                            <td><ul><li>Unordered List</li></ul></td>
+                                            <td>- Unordered List</td>
+                                        </tr>
+                                        <tr>
+                                            <td><ol><li>Ordered List</li></ol></td>
+                                            <td>1. Ordered List</td>
+                                        </tr>
+                                        <tr>
+                                            <td><ul><li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled"><label></label>Checklist</li></ul></td>
+                                            <td>- [ ] Checklist</td>
+                                        </tr>
+                                        <tr>
+                                            <td><blockquote> Blockquote</blockquote></td>
+                                            <td>&gt; Blockquote</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Bold</strong></td>
+                                            <td>**Bold**</td>
+                                        </tr>
+                                        <tr>
+                                            <td><i>Italicize</i></td>
+                                            <td>*Italicize*</td>
+                                        </tr>
+                                        <tr>
+                                            <td><s>Strikethrough</s></td>
+                                            <td>~~Strikethrough~~</td>
+                                        </tr>
+                                        <tr>
+                                            <td>19<sup>th</sup></td>
+                                            <td>19^th^</td>
+                                        </tr>
+                                        <tr>
+                                            <td>H<sub>2</sub>O</td>
+                                            <td>H~2~O</td>
+                                        </tr>
+                                        <tr>
+                                            <td><ins>Underlined text</ins></td>
+                                            <td>++Underlined text++</td>
+                                        </tr>
+                                        <tr>
+                                            <td><mark>Highlighted text</mark></td>
+                                            <td>==Highlighted text==</td>
+                                        </tr>
+                                        <tr>
+                                            <td><a>Link</a></td>
+                                            <td>[link text](https:// "title")</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Image</td>
+                                            <td>![image alt](https:// "title")</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>Code</code></td>
+                                            <td>`Code`</td>
+                                        </tr>
+                                        <tr>
+                                            <td><pre style="border:none !important;"><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code"><span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
+</div></div></code></pre></td>
+                                            <td>```javascript<br>var i = 0;<br>```</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img align="absmiddle" alt=":smile:" class="emoji" src="manual_files/smile.png" title=":smile:"></td>
+                                            <td>:smile:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Externals</td>
+                                            <td>{%youtube youtube_id %}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L<sup>a</sup>T<sub>e</sub>X</td>
+                                            <td>$L^aT_eX$</td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="alert alert-info"><p>This is an alert area.</p></div></td>
+                                            <td>:::info<br>This is an alert area.<br>:::</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    table.table-cheatsheet tr > td:nth-child(2) {
+        font-family: "Source Code Pro", Consolas, monaco, monospace;
+        letter-spacing: 0.025em;
+        line-height: 1.25;
+    }
+</style>
+
+<!-- revision modal -->
+<div class="modal fade" id="revisionModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="mySmallModalLabel"><i class="fa fa-history"></i> Revision</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-4" style="max-height: calc(100vh - 215px); overflow: auto;">
+                        <div class="list-group ui-revision-list"></div>
+                    </div>
+                    <div class="col-lg-8" style="height: calc(100vh - 215px); overflow: hidden;">
+                        <textarea id="revisionViewer" style="display:none;"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="revisionModalDownload">Download</button>
+                <button type="button" class="btn btn-danger" id="revisionModalRevert">Revert</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- pandoc export modal -->
+<div class="modal fade pandoc-export-modal" id="pandoc-export-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Export with pandoc</h4>
+            </div>
+            <form action="#" class="form-inline">
+                <div class="modal-body">
+                    <strong>Select output format</strong>
+                    <select name="output" id="output" class="form-control">
+                        <option value="asciidoc" selected="selected">AsciiDoc</option>
+                        <option value="context">ConTeXt</option>
+                        <option value="epub">EPUB (.epub)</option>
+                        <option value="epub3">EPUB v3 (.epub3)</option>
+                        <option value="latex">LaTeX</option>
+                        <option value="odt">OpenOffice (.odt)</option>
+                        <option value="rst">reStructuredText (.rst)</option>
+                        <option value="rtf">Rich Text Format (.rtf)</option>
+                        <option value="textile">Textile</option>
+                        <option value="docx">Word (.docx)</option>
+                        <option value="mediawiki">Mediawiki</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="pandoc-export-download">Export</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+    
+    <script src="manual_files/mathjax-config-extra.js"></script>
+
+<script src="manual_files/MathJax.js" defer="defer"></script>
+<script src="manual_files/TeX-AMS-MML_HTMLorMML.js" defer="defer"></script>
+<script src="manual_files/Safe.js" defer="defer"></script>
+<script src="manual_files/config"></script><script src="manual_files/common.dd6a2fc1506798f81138.js" defer="defer"></script><script src="manual_files/index-pack.48b3e2a4a5d058b1c169.js" defer="defer"></script>
+
+
+
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
