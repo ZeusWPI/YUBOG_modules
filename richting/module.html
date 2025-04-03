@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="UTF-8">
+</head>
+<body id="body">
+    <div class="box">
+        <h1>Order???</h1>
+        <div id="richtingen"></div>
+        <div class="middle" >
+            <button id="up">Up</button>
+        </div>
+        <div class="bottom">
+            <button id="left">Left</button>
+            <button id="down">Down</button>
+            <button id="right">Right</button>
+        </div>
+        <div class="submits">
+            <button id="reset">Reset</button>
+            <button id="submit">Submit</button>
+        </div>
+    </div>
+</body>
+
+<script type="module">
+    import BombModule from "../../ModuleLib.js";
+    const bombModule = new BombModule();
+
+    document.getElementById("left").addEventListener("click", left);
+    document.getElementById("right").addEventListener("click", right);
+    document.getElementById("down").addEventListener("click", down);
+    document.getElementById("up").addEventListener("click", up);
+    document.getElementById("reset").addEventListener("click", reset);
+    document.getElementById("submit").addEventListener("click", submit);
+
+    const richt = document.getElementById("richtingen");
+    // 0: up, 1: down, 2: left, 3: right
+    const mogelijkheden = [ "U", "D", "L", "R"];
+    const oposite = [1, 0, 3, 2];
+
+    window.addEventListener("yubog:start", start);
+
+    let gekosMog = [];
+    const kleuren = ["darkred", "orange"]
+    let oriMog = [];
+
+    function start() {
+        oriMog = kies();
+        oriMog.reverse();
+        gekosMog = [...oriMog];
+    }
+
+
+
+    let tries = 2;
+    let goed = true;
+
+
+    function kies() {
+        let gekos = [];
+        for (let i = 0; i < 5; i += 1) {
+            let ret = ""
+            let tmp = 0;
+            let x = Math.floor(Math.random() * 3);
+            if (Math.random() < Math.abs(1-i * 0.3)) {
+                tmp = x;
+                ret = mogelijkheden[x];
+            } else {
+                ret = x;
+                tmp = x;
+            }
+            let roll = Math.random();
+            if (roll < 0.3) {
+                tmp = oposite[tmp];
+                ret = "<span style=\"color: red;\">" + ret + "</span>"
+            } else if (0.3 <= roll && roll < 0.5) {
+                ret = "<span style=\"color: green;\">" + ret + "</span>"
+            } else if (0.5 <= roll && roll < 0.7) {
+                ret = "<span style=\"color: khaki;\">" + ret + "</span>"
+            } else if (0.7 <= roll && roll < 0.9) {
+                // Vraagteken
+                ret = "Uuhhhm, dit zou ni moge....";
+                let roll = Math.random(); // roll voor vraagteken Kleur
+                if (roll < 0.25) {
+                    // Roze
+                    tmp = 3;
+                    if (bombModule.getEdgework().batteries.length > 0) {
+                        tmp = bombModule.getEdgework().batteries[0];
+                    }
+                    ret = "<span style=\"color: deeppink;\">?</span>"
+                } else if (0.25 <= roll && roll < 0.50) {
+                    // Bruin
+                    tmp = 0;
+                    if (bombModule.getEdgework().batteries.length > 0) {
+                        tmp = bombModule.getEdgework().batteries[0]
+                            * bombModule.getEdgework().batteries.length;
+                        tmp = tmp % 4;
+                    }
+                    ret = "<span style=\"color: saddlebrown;\">?</span>"
+                } else if (0.50 <= roll && roll < 0.75) {
+                    // Zwart
+                    tmp = 0;
+
+                    let ser = bombModule.getEdgework().serial;
+
+                    ser = ser.replaceAll(/[^0-9]/g, "");
+                    let opt = 0;
+                    ser.replaceAll(/[0-9]/g, (a) => opt += Number.parseInt(a));
+                    opt = opt%4;
+                    tmp = opt;
+                    ret = "<span style=\"color: black;\">?</span>"
+                } else if (0.75 <= roll && roll < 1) {
+                    // Paars
+
+                    tmp = bombModule.getEdgework().ports.length;
+                    ret = "<span style=\"color: blueviolet;\">?</span>"
+                } else {
+
+                }
+            } else {
+                ret = "<span style=\"color: white;\">" + ret + "</span>"
+            }
+            gekos.push(tmp);
+            richt.innerHTML += ret;
+        }
+        return gekos;
+    }
+
+    function vraagVraagteken() {
+        // ret = "<span style=\"color: deeppink;\">?</span>"
+
+
+        return ret;
+    }
+
+    function reset() {
+        if (tries > 0) {
+            tries -= 1;
+            document.getElementById("body").classList.add(kleuren[tries]);
+        } else {
+            bombModule.sendStrike();
+        }
+        goed = true;
+        gekosMog = [...oriMog];
+    }
+
+    function submit() {
+        if (goed && gekosMog.length === 0) {
+            document.getElementById("body").classList.remove(kleuren[0]);
+            document.getElementById("body").classList.remove(kleuren[1]);
+            bombModule.sendSolve();
+        } else {
+            bombModule.sendStrike();
+            gekosMog = [...oriMog];
+        }
+    }
+
+    function up() {
+        let moet = gekosMog.pop();
+        if (moet !== 0) {
+            goed = false;
+        }
+    }
+
+    function down() {
+        let moet = gekosMog.pop();
+        if (moet !== 1) {
+            goed = false;
+        }
+    }
+
+    function left() {
+        let moet = gekosMog.pop();
+        if (moet !== 2) {
+            goed = false;
+        }
+    }
+
+    function right() {
+        let moet = gekosMog.pop();
+        if (moet !== 3) {
+            goed = false;
+        }
+    }
+</script>
+
+<style>
+    body {
+        user-select: none;
+        font-size: 8vmin;
+    }
+
+    h1 {
+        margin-bottom: 2px;
+        margin-top: 2px;
+    }
+
+    #tekst {
+        margin-bottom: 3px;
+    }
+
+    button {
+        border: none;
+        border-radius: 10%;
+        color: white;
+        cursor: pointer;
+        width: 65pt;
+        height: 40pt;
+    }
+
+    .submits button {
+        height: 25pt;
+        padding: 0;
+    }
+
+    #submit {
+        background-color: green;
+    }
+
+    #reset {
+        background-color: red;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    #up {
+        background-color: rgba(107, 201, 107, 0.88);
+        margin-bottom: 5pt;
+    }
+
+    #down {
+        background-color: #e94343;
+        margin-bottom: 5pt;
+    }
+
+    #left {
+        background-color: khaki;
+    }
+
+    #right {
+        background-color: lightskyblue;
+    }
+
+    .buttons {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .middle {
+        align-items: center;
+        margin-bottom: 2pt;
+    }
+
+    .bottom {
+        align-items: center;
+    }
+
+    .box {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0%;
+        color: white;
+    }
+
+    .orange {
+        background-color: orange;
+    }
+
+    .darkred {
+        background-color: darkred;
+    }
+</style>
+</html>
