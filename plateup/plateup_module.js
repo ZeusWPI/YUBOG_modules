@@ -28,20 +28,20 @@ const dishToImage = [
     "pizza.png"
 ]
 
+
+const clickAudio = new Audio('assets/button_click.wav');
+clickAudio.volume = 0.1;
+
 let processing = false
 
 statusBar.style.opacity = 0;
 
-let serial, ports, batteries, dish, dishIndex, stepIndex;
+let dish, dishIndex, stepIndex;
 
 
 function init() {
-    serial = bombModule.getEdgework().serial;
-    ports = bombModule.getEdgework().ports;
-    batteries = bombModule.getEdgework().batteries;
 
-    dishIndex = 4
-    chooseDish();
+    dishIndex = chooseDish();
     dish = DISHES[dishIndex];
     console.log("[PlateUp] Dish: " + dish);
     stepIndex = 0;
@@ -51,12 +51,12 @@ function init() {
 
 function tryStep(action) {
     if (!processing) {
-
+        clickAudio.play();
         if (action !== dish[stepIndex]) {
             bombModule.sendStrike();
             console.log("[PlateUp] Strike!")
         } else {
-            statusBar.style.opacity = 0;
+            statusBar.style.opacity = "0";
             if (dish[stepIndex] === "HOB") {
                 process(8000);
             } else if (dish[stepIndex] === "OVEN") {
@@ -72,7 +72,7 @@ function tryStep(action) {
 }
 
 async function process(time) {
-    statusBar.style.opacity = 1;
+    statusBar.style.opacity = "1";
     progress.style.backgroundImage = "url('assets/progress.png')";
     processing = true;
     let startStep = stepIndex + 1;
@@ -89,15 +89,20 @@ async function process(time) {
 
 
 function chooseDish() {
+    let edgework = bombModule.getEdgework();
+    let serial = edgework.serial;
+    let ports = edgework.ports;
+    let batteries = edgework.batteries;
+
     if (serial.charCodeAt(0) - "A".charCodeAt(0) >= 13 && serial[serial.length - 1] % 3 === 1) {
-        dishIndex = 0;
+        return 0;
     } else if (batteries.length >= 2 && batteries.filter(e => e >= 2).length >= 2) {
-        dishIndex = 1;
+        return 1;
     } else if (ports.length === 3) {
-        dishIndex = 2;
+        return 2;
     } else if (ports.includes("Parallel")) {
-        dishIndex = 3;
+        return 3;
     } else {
-        dishIndex = 4;
+        return 4;
     }
 }
