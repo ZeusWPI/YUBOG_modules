@@ -1,11 +1,11 @@
 import BombModule from "https://hannes-dev.github.io/YUBOG/ModuleLib.js";
 
 const bombModule = new BombModule();
-window.addEventListener("yubog:init", e => init());
 window.addEventListener("yubog:start", e => start());
 let edgework;
 
 const wait = (time => new Promise(r => setTimeout(r, time)));
+
 
 for (let button of document.getElementsByClassName("action")) {
     button.addEventListener("click", function () {
@@ -33,27 +33,35 @@ statusBar.style.opacity = "0";
 
 const DISHES = {
     burger: ["MEAT", "HOB", "BUNS", "PLATE"],
-    steak_1: ["MEAT", "HOB", "PLATE"],
-    steak_2: ["MEAT", "HOB", "HOB", "PLATE"],
-    steak_3: ["MEAT", "HOB", "HOB", "HOB", "PLATE"],
+    steak1: ["MEAT", "HOB", "PLATE"],
+    steak2: ["MEAT", "HOB", "HOB", "PLATE"],
+    steak3: ["MEAT", "HOB", "HOB", "HOB", "PLATE"],
     pizza: ["FLOUR", "CHOP", "OIL", "TOMATO", "CHOP", "CHOP", "CHEESE", "CHOP", "HOB", "PLATE"]
 };
 
+const STEAKS = [
+    DISHES["steak1"],
+    DISHES["steak2"],
+    DISHES["steak3"]
+]
+
 let customersToCome = [];
 let waitingCustomers = [];
+
+let customerHistory = []; // Keeps all the customer orders (to calculate the next)
 
 let cooking = false;
 let burning = false;
 
 let stepIndex = 0;
 
-function init() {
-    edgework = bombModule.getEdgework();
-    customersToCome.push(newCustomer());
-    customersToCome.push(newCustomer());
-}
-
 async function start() {
+    customersToCome.push(getCustomer(1));
+    customerHistory.push(getCustomer(1));
+    customersToCome.push(getCustomer(2));
+    customerHistory.push(getCustomer(2));
+
+    // actual Start
     await wait(3000);
     waitingCustomers.push(customersToCome.shift());
     updateCustomerSeat();
@@ -86,8 +94,6 @@ function executeStep(action) {
             updateCustomerSeat();
             customerDoneAudio.play();
             stepIndex = 0;
-            console.log("customer served")
-            console.log("customers still waiting:" + waitingCustomers)
         }
         if (customersToCome.length <= 0 && waitingCustomers.length <= 0) {
             bombModule.sendSolve();
@@ -119,26 +125,43 @@ async function process(time) {
 
 }
 
-function newCustomer() {
-    return DISHES["pizza"];
-}
+function getCustomer(customerNr) {
+    const getSeason = d => Math.floor((d.getMonth() / 12 * 4)) % 4;
 
-function chooseDish() {
     let edgework = bombModule.getEdgework();
-    let serial = edgework.serial;
-    let ports = edgework.ports;
-    let batteries = edgework.batteries;
+    let serial = bombModule.getEdgework().serial;
+    let ports = bombModule.getEdgework().ports;
+    let batteries = bombModule.getEdgework().batteries;
+    bombModule.getTotalBatteries()
 
-    if (serial.charCodeAt(0) - "A".charCodeAt(0) >= 13 && serial[serial.length - 1] % 3 === 1) {
-        return DISHES[0];
-    } else if (batteries.length >= 2 && batteries.filter(e => e >= 2).length >= 2) {
-        return DISHES[1];
-    } else if (ports.length === 3) {
-        return DISHES[2];
-    } else if (ports.includes("Parallel")) {
-        return DISHES[3];
-    } else {
-        return DISHES[4];
+    if (customerNr === 1) {
+        if (ports.includes("Parallel") && /[aeiou]/.test(serial)) {
+            return DISHES["steak1"];
+        } else if (bombModule.getTotalBatteries() > 6) {
+            return DISHES["steak2"];
+        } else if (/[0-9].*[0-9].*[0-9]/.test(serial)) {
+            return DISHES["steak3"];
+        } else {
+            return DISHES["pizza"];
+        }
+    } else if (customerNr === 2) {
+        if (STEAKS.includes(customerHistory[0]) && ports.includes("DVI-D")) {
+            return DISHES["pizza"]
+        } else if (calculateDigitsMod6(serial) > 3) {
+            return DISHES["steak2"];
+        } else if (ports.includes("PS/2")) {
+            return DISHES["steak3"];
+        } else {
+            return DISHES["burger"];
+        }
+    } else { // customerNr === 3
+        if (/[a-m]/.test(serial[0]) && serial[5] % 3 === 1) {
+            return DISHES["burger"];
+        } else if (getSeason(new Date()) === 2 && ports.length % 2 === 0) {
+            return DISHES["steak2"];
+        } else {
+            return DISHES["pizza"];
+        }
     }
 }
 
@@ -148,4 +171,10 @@ function updateCustomerSeat() {
     } else {
         customerSeat.src = "assets/customer.png";
     }
+}
+
+function calculateDigitsMod6(serial) {
+    let digits = serial.split("").filter(e => /[0-9]/.test(e));
+    let product = digits.reduce((a, b) => a * b);
+    return product % 6;
 }
