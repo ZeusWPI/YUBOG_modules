@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 
 <head>
     <meta charset="UTF-8">
+    <title>YUBOG - PlateUp! Module</title>
 </head>
 <body>
 <div class="box">
     <div id="status-bar">
-        <img src="assets/cook.png"/>
+        <img src="assets/cook.png" alt="cooking progress"/>
         <div id="progress-img"></div>
     </div>
     <div class="button-box">
@@ -22,10 +23,7 @@
         <button class="action">PLATE</button>
     </div>
     <div class="image-box">
-        <div id="order-bubble">
-            <img id="order" src="assets/borgor.png"/>
-        </div>
-        <img src="assets/customer.png"/>
+        <img id="customer_seat" src="assets/no_customer.png" alt="table"/>
     </div>
 </div>
 </body>
@@ -69,21 +67,6 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    #order-bubble {
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 999;
-        background-image: url("assets/order-bubble.png");
-        background-size: 100% 100%;
-        translate: -100% 75%;
-        opacity: 0;
-    }
-
-    #order {
-        translate: 0 -25%;
-    }
-
     #progress-img {
         background-size: 100% 100%;
         height: 70%;
@@ -117,7 +100,7 @@
     html, body {
         width: 100%;
         height: 100%;
-        margin: 0%;
+        margin: 0;
     }
 
     button {
@@ -125,9 +108,10 @@
         background: linear-gradient(#e5b350, #c18f2e);
         margin: 3px;
         cursor: pointer;
-        border-width: 3px;
+        border-width: 1vmin;
         border-color: #444444;
         font-size: 6vmin;
+        font-weight: bold;
     }
 
 
