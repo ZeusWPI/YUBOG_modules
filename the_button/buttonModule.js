@@ -32,14 +32,51 @@ export function buttonReleased() {
     if (!isPressed) return;
     releaseTime = module.getBombTimeString();
     const batteries = module.getTotalBatteries();
+    const serial = module.getSerialNumber();
+    const moduleCount = module.getTotalModuleAmount();
     const isHeld = (clickTimeMs - module.getTimeRemainingMs()) > 250;
     console.log(releaseHeldButton(isHeld));
 
     if(bgColor === "blue" && text === "Abort" && isHeld) {
-
+        if(releaseHeldButton(isHeld)){
+            module.sendSolve();
+            document.querySelector('#indicator rect').setAttribute("fill", "grey");
+            isPressed = false;
+            return;
+        }
+    }else if(batteries > 1 && text === "Detonate" && !isHeld) {
+        module.sendSolve();
+        return;
+    }else if(bgColor === "white" && serial.match(/[AEIOU]/)) {
+        if(releaseHeldButton(isHeld)){
+            module.sendSolve();
+            document.querySelector('#indicator rect').setAttribute("fill", "grey");
+            isPressed = false;
+            return;
+        }
+    }else if(batteries>2 && moduleCount>6 && !isHeld){
+        module.sendSolve();
+        return;
+    }else if(bgColor === "yellow") {
+        if(releaseHeldButton(isHeld)){
+            module.sendSolve();
+            document.querySelector('#indicator rect').setAttribute("fill", "grey");
+            isPressed = false;
+            return;
+        }
+    }else if(bgColor === "red" && text === "Hold" && !isHeld) {
+        module.sendSolve();
+        return;
+    }else{
+        if(releaseHeldButton(isHeld)){
+            module.sendSolve();
+            document.querySelector('#indicator rect').setAttribute("fill", "grey");
+            isPressed = false;
+            return;
+        }
     }
 
-    console.log(module.getTimeRemainingMs());
+    module.sendStrike();
     document.querySelector('#indicator rect').setAttribute("fill", "grey");
     isPressed = false;
 
