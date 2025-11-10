@@ -4,7 +4,7 @@ const bombModule = new BombModule();
 window.addEventListener("yubog:start", e => init());
 
 const debugLog = (msg) => {
-    console.log(`%c[ManualParser]%c${msg}`, "color: gold;");
+    console.log(`%c[Module33]%c${msg}`, "color: gold;");
 }
 
 const PROGRESS_DISPLAY = document.getElementById("progress")
