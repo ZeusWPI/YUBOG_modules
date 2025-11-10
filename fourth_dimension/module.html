@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr); 
+
+        border-radius: 30px;
+        border: 1px solid black;
+        overflow: hidden;
+
+        align-items: stretch;
+        justify-items: stretch;
+        background-image: radial-gradient(#0F0F30, #001020);
+        
+        width: 95%;
+        height: 95%;
+      }
+
+      .grid div:hover {
+        background-color: rgb(35, 35, 65);
+      }
+     .grid div {
+        text-align: center;
+        color: white;
+        display: flex;
+        overflow: hidden; 
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.2s ease;
+        user-select: none;
+      
+        border: 1px dotted rgb(150, 150, 0);
+        margin: -0.5px;
+      }
+      .grid div:nth-child(-n+3) { border-top: none; }
+      .grid div:nth-last-child(-n+3) { border-bottom: none; }
+      .grid div:nth-child(3n+1) { border-left: none; }
+      .grid div:nth-child(3n) { border-right: none; }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div id="button_1"> </div>
+      <div id="button_2"> </div>
+      <div id="button_3"> </div>
+      <div id="button_4"> </div>
+      <div id="button_5"> </div>
+      <div id="button_6"> </div>
+      <div id="button_7"> </div>
+      <div id="button_8"> </div>
+      <div id="button_9"> </div>
+    </div>
+  </body>
+</html>
+
