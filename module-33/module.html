@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Claire Obscur</title>
+</head>
+<body>
+<div id="module">
+    <div id="progress">
+        🟢🔴🔴
+    </div>
+    <img id="display" src="https://static.wikia.nocookie.net/clair-obscur/images/2/26/Coe33_Mime.png" />
+    <div class="button-div">
+        <a class="option" id="button1">Option 1</a>
+        <a class="option" id="button2">Option 2</a>
+        <a class="option" id="button3">Option 3</a>
+        <a class="option" id="button4">Option 4</a>
+    </div>
+</div>
+</body>
+<script type="module" src="clair-obscur.js"></script>
+</html>
+
+<style>
+    body {
+        overflow: hidden;
+    }
+    #module {
+        display: grid;
+        grid-template-rows: 3% 40% 35%;
+        gap: 5px;
+        justify-items: center;
+    }
+    #progress {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    img {
+        height: 100%;
+        aspect-ratio: 1 / 1;
+    }
+    .button-div {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        gap: 5px;
+        width: 100%;
+    }
+
+    .option {
+
+        background-color:#4f4f4f;
+        border-radius:9px;
+        border:5px solid #dbcbaf;
+        display:inline-flex;
+        justify-content: center;
+        align-items: center;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Times New Roman,serif;
+
+        text-decoration:none;
+    }
+    .option:hover {
+        background-color:#575757;
+    }
+    .option:active {
+        position:relative;
+        top:1px;
+    }
+
+
+</style>
+
