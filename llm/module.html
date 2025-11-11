@@ -21,7 +21,7 @@
     const AI_ISMS = ["You're absolutely right!", "Certainly!", "Excellent question!", "As a large language model", "I'm sorry, but", "It's important to note", "With that being said", "On the other hand", "Delve into", "Navigating the landscape", "A testament to", "In conclusion", "When it comes to", "This underscores the importance of"];
     const random = Math.floor(Math.random() * AI_ISMS.length);
     const prompt = AI_ISMS[random];
-
+    let solved = false;
     let promptObfuscated = "";
 
     for (const c of prompt) {
@@ -37,10 +37,14 @@
 
 
     function submit() {
+        if (solved) {
+            return;
+        }
         if (document.getElementById("answer").value != prompt) {
             bombModule.sendStrike();
         } else {
             bombModule.sendSolve();
+            solved = true;
         }
     }
 </script>
