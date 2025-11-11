@@ -12,23 +12,23 @@ for (let button of document.getElementsByClassName("action")) {
         if (!cooking) {
             executeStep(button.innerHTML);
         }
-    })
+    });
 }
 
 const clickAudio = new Audio('assets/button_click.wav');
 clickAudio.volume = 0.1;
-const fryingAudio = new Audio('assets/pan_frying.wav')
+const fryingAudio = new Audio('assets/pan_frying.wav');
 fryingAudio.volume = 0.1;
 fryingAudio.loop = true;
 const customerEnterAudio = new Audio('assets/customer_enter.wav');
 customerEnterAudio.volume = 0.1;
-const customerDoneAudio = new Audio('assets/finish_customer.wav')
+const customerDoneAudio = new Audio('assets/finish_customer.wav');
 customerDoneAudio.volume = 0.3;
 
 const customerSeat = document.getElementById("customer_seat");
 
-const statusBar = document.getElementById("status-bar")
-const progress = document.getElementById("progress-img")
+const statusBar = document.getElementById("status-bar");
+const progress = document.getElementById("progress-img");
 statusBar.style.opacity = "0";
 
 const DISHES = {
@@ -43,7 +43,7 @@ const STEAKS = [
     DISHES["steak1"],
     DISHES["steak2"],
     DISHES["steak3"]
-]
+];
 
 let customersToCome = [];
 let waitingCustomers = [];
@@ -73,7 +73,7 @@ async function start() {
 }
 
 function executeStep(action) {
-    clickAudio.play()
+    clickAudio.play();
     if (!burning) {
         statusBar.style.opacity = "0";
         fryingAudio.pause();
@@ -99,7 +99,7 @@ function executeStep(action) {
             bombModule.sendSolve();
         }
     } else {
-        console.log("sent " + action + " instead of " + waitingCustomers[0][stepIndex])
+        console.log("sent " + action + " instead of " + waitingCustomers[0][stepIndex]);
         bombModule.sendStrike();
     }
 }
@@ -117,7 +117,7 @@ async function process(time) {
     burning = true;
     await wait(3000);
     if (burning) {
-        bombModule.sendStrike()
+        bombModule.sendStrike();
         statusBar.style.opacity = "0";
         stepIndex = 0;
         fryingAudio.pause();
@@ -129,10 +129,10 @@ function getCustomer(customerNr) {
     const getSeason = d => Math.floor((d.getMonth() / 12 * 4)) % 4;
 
     let edgework = bombModule.getEdgework();
-    let serial = bombModule.getEdgework().serial;
+    let serial = bombModule.getEdgework().serial.toLowerCase();
     let ports = bombModule.getEdgework().ports;
     let batteries = bombModule.getEdgework().batteries;
-    bombModule.getTotalBatteries()
+    bombModule.getTotalBatteries();
 
     if (customerNr === 1) {
         if (ports.includes("Parallel") && /[aeiou]/.test(serial)) {
@@ -146,7 +146,7 @@ function getCustomer(customerNr) {
         }
     } else if (customerNr === 2) {
         if (STEAKS.includes(customerHistory[0]) && ports.includes("DVI-D")) {
-            return DISHES["pizza"]
+            return DISHES["pizza"];
         } else if (calculateDigitsMod6(serial) > 3) {
             return DISHES["steak2"];
         } else if (ports.includes("PS/2")) {
