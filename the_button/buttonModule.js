@@ -17,8 +17,6 @@ let clickTimeMs;
 let releaseTime;
 
 
-
-const randomNum = Math.floor(Math.random() * 4);
    
 export function clicked() {
     isPressed = true;
@@ -37,16 +35,21 @@ export function buttonReleased() {
     const isHeld = (clickTimeMs - module.getTimeRemainingMs()) > 250;
     console.log(releaseHeldButton(isHeld));
 
-    if(bgColor === "blue" && text === "Abort" && isHeld) {
+    if(bgColor === "blue" && text === "Submit") {
         if(releaseHeldButton(isHeld)){
             module.sendSolve();
             document.querySelector('#indicator rect').setAttribute("fill", "grey");
             isPressed = false;
             return;
         }
-    }else if(batteries > 1 && text === "Detonate" && !isHeld) {
-        module.sendSolve();
-        return;
+    }else if(batteries > 1 && text === "Launch") {
+        if(!isHeld){
+            module.sendSolve();
+            document.querySelector('#indicator rect').setAttribute("fill", "grey");
+            isPressed = false;
+            return;
+        }
+        
     }else if(bgColor === "white" && serial.match(/[AEIOU]/)) {
         if(releaseHeldButton(isHeld)){
             module.sendSolve();
@@ -54,9 +57,13 @@ export function buttonReleased() {
             isPressed = false;
             return;
         }
-    }else if(batteries>2 && moduleCount>6 && !isHeld){
-        module.sendSolve();
-        return;
+    }else if(batteries>2 && moduleCount>6){
+        if(!isHeld){
+            module.sendSolve();
+            document.querySelector('#indicator rect').setAttribute("fill", "grey");
+            isPressed = false;
+            return;
+        }
     }else if(bgColor === "yellow") {
         if(releaseHeldButton(isHeld)){
             module.sendSolve();
@@ -64,9 +71,13 @@ export function buttonReleased() {
             isPressed = false;
             return;
         }
-    }else if(bgColor === "red" && text === "Hold" && !isHeld) {
-        module.sendSolve();
-        return;
+    }else if(bgColor === "red" && text === "Hold") {
+      if(!isHeld){
+            module.sendSolve();
+            document.querySelector('#indicator rect').setAttribute("fill", "grey");
+            isPressed = false;
+            return;
+        }
     }else{
         if(releaseHeldButton(isHeld)){
             module.sendSolve();
@@ -85,34 +96,37 @@ export function buttonReleased() {
 function releaseHeldButton(isHeld){
     if(!isHeld) return false;
 
-    let color_to_number = {
-        "blue": "4",
-        "white": "1",
-        "yellow": "5",
+    console.log(module.getUnsolvedModuleAmount());
+
+    let color_to_statement = {
+        "blue": releaseTime.includes("4"),
+        "white": releaseTime.includes(module.getSolvedModuleAmount() < module.getTotalModuleAmount()/2 ? "8" : "1"),
+        "yellow": releaseTime.includes("5"),
+        "purple": releaseTime.includes(module.isPortPresent(module.PORTS.STEREO_RCA) || module.isPortPresent(module.PORTS.SERIAL) ? "2": "5"),
     };
 
-    if(!Object.keys(color_to_number).includes(stripColor)) return releaseTime.includes("2");
+    if(!Object.keys(color_to_statement).includes(stripColor)) return releaseTime.includes("3");
 
-    return releaseTime.includes(color_to_number[stripColor]);
+    return color_to_statement[stripColor];
 }
 
 // Function to change the button color
 function changeButtonColor() {
     const bgcolors = ["yellow","red","white","blue", "black"];
     const colors = ["black", "white","black", "white", "white"];
-    const fillColors = ["yellow","blue","white","red"];
-    const arr = ["Press", "Hold", "Abort", "Detonate"];
+    const fillColors = ["yellow","blue","white","red","purple"];
+    const arr = ["Hit", "Hold", "Submit", "Launch"];
 
     let randomNumber = Math.floor(Math.random() * bgcolors.length) 
     const button = document.getElementById("Knop");
     bgColor = bgcolors[randomNumber];
-    stripColor = fillColors[randomNum];
+    stripColor = fillColors[Math.floor(Math.random() * fillColors.length)];
     text = arr[Math.floor(Math.random() * arr.length)];
 
      if (button){
         button.style.backgroundColor = bgColor;
         button.style.color = colors[randomNumber];
-        button.style.border = "2px solid " + bgcolors[randomNumber];
+        button.style.border = "2px solid " + bgColor;
         button.textContent = text;
      }
 }
