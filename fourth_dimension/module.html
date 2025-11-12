@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Permanent+Marker&display=swap" rel="stylesheet">
     <style>
+      .we-solved-the-puzzle-exclamation-mark {
+        background-image: radial-gradient(#00ff00, #00aa00);
+      }
       html, body {
         height: 100%;
         margin: 0;
 
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
 
@@ -36,7 +40,7 @@
         background-image: radial-gradient(#0F0F30, #001020);
         
         width: 95vmin;
-        height: 95vmin;
+        height: 90vmin;
       }
 
       .grid div:hover {
@@ -60,9 +64,55 @@
       .grid div:nth-last-child(-n+3) { border-bottom: none; }
       .grid div:nth-child(3n+1) { border-left: none; }
       .grid div:nth-child(3n) { border-right: none; }
+
+
+      .strike-effect {
+        animation: flash-red 1s, shake 0.4s;
+      }
+
+      .solve-effect {
+        animation: glow-green 0.6s;
+      }
+
+      @keyframes flash-red {
+        0% { background: red; }
+        50% { background: darkred; }
+        100% { background: red; }
+      }
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+      }
+
+      @keyframes glow-green {
+        0% { background: green; }
+        50% { background: lime; }
+        100% { background: green; }
+      }
+      .progress_bar {
+        display: flex;
+        justify-content: space-between;
+        width: 50vmin;
+        margin-top: 10px;
+      }
+
+      .circle.solved-circle {
+        background-color: #55F;
+      }
+
+      .circle {
+        aspect-ratio: 1 / 1;
+        width: 10vmin;
+        height: 10vmin;
+        background-color: #2d2d2d;
+        border: 2px solid #555;
+        border-radius: 50%;
+      }
     </style>
   </head>
-  <body>
+  <body class="body">
     <div class="grid">
       <div id="button_0"> </div>
       <div id="button_1"> </div>
@@ -75,7 +125,13 @@
       <div id="button_8"> </div>
     </div>
 
+    <div class="progress_bar">
+      <div class="circle" id="circle_0"></div>
+      <div class="circle" id="circle_1"></div>
+      <div class="circle" id="circle_2"></div>
+    </div>
+
     <script type="module" src="module.js"></script>
-  </body>
+      </body>
 </html>
 

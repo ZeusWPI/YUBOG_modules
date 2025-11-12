@@ -183,7 +183,16 @@ function displayHitTiles(layout) {
     const buttIndex = getButtIndex(pos)
     const butt = document.getElementById(`button_${buttIndex}`);
     if (butt) {
-      butt.textContent = "X" + buttIndex
+      butt.textContent = "X"
+    }
+  }
+}
+
+function updateProgressCircles() {
+  for (let i = 0; i < solves; i++) {
+    const doc = document.getElementById(`circle_${i}`)
+    if (doc) {
+      doc.classList.add("solved-circle")
     }
   }
 }
@@ -191,15 +200,24 @@ function displayHitTiles(layout) {
 // trigger a strike
 function handleStrike() {
   if (!hasBeenSolved) {
+    document.body.classList.add("strike-effect");
+    setTimeout(() => document.body.classList.remove("strike-effect"), 1000);
     bombModule.sendStrike();
+
   }
 }
 
 // trigger a solve of a single layout
 function handleSolve() {
+  solves += 1;
   if (solves >= solvesNeeded) {
     bombModule.sendSolve();
+    document.body.classList.add("we-solved-the-puzzle-exclamation-mark");
   }
+
+  updateProgressCircles()
+  document.body.classList.add("solve-effect");
+  setTimeout(() => document.body.classList.remove("solve-effect"), 1000);
 }
 
 let clickDebounce = false;
