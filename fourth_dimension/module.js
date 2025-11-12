@@ -3,103 +3,83 @@ const bombModule = new BombModule();
 
 const syms = [
   {
-    icon: "./assets/damnation-bird-2013121115.gif",
-    ops: [ 'd^', 'O.' ],
+    icon: "./assets/icon_8.png",
+    ops: [ '   ',  ' * ', ' * ' ],
   },
   {
-    icon: "./assets/DAMN.png",
-    ops: [ '_', 'o_' ],
+    icon: "./assets/icon_3.png",
+    ops: [ ' * ', '***', ' * ' ],
   },
   {
-    icon: "",
-    ops: [ '_', 'o.', 'o_' ],
+    icon: "./assets/icon_5.png",
+    ops: [ ' * ', '* *',  ' * '  ],
   },
   {
-    icon: "",
-    ops: [ '/', 'o/' ],
+    icon: "./assets/icon_14.png",
+    ops: [ '* *', ' * ', '* *' ],
   },
   {
-    icon: "",
-    ops: [ '^', 'o^' ],
+    icon: "./assets/icon_13.png",
+    ops: [ ' * ', '   ', ' * '  ],
   },
   {
-    icon: "",
-    ops: [ '/', 'o/', '_' ],
+    icon: "./assets/icon_7.png",
+    ops: [ '* *', '***', '* *'  ],
   },
   {
-    icon: "",
-    ops: [ '', '' ],
+    icon: "./assets/icon_2.png",
+    ops: [ ' **', '  *', ' * '  ],
   },
   {
-    icon: "",
-    ops: [ '', '' ],
+    icon: "./assets/icon_4.png",
+    ops: [ '** ', '*  ', ' **'  ],
   },
   {
-    icon: "",
-    ops: [ '', '' ],
+    icon: "./assets/icon_9.png",
+    ops: [ '** ', '* *', ' **'  ],
   },
   {
-    icon: "",
-    ops: [ '', '' ],
+    icon: "./assets/icon_1.png",
+    ops: [ '* *', '* *', '* *'  ],
+  },
+
+  {
+    icon: "./assets/icon_16.png",
+    ops: [ '***', '   ', '***'  ],
   },
   {
-    icon: "",
-    ops: [ '', '' ],
+    icon: "./assets/icon_15.png",
+    ops: [ '* *', '***', '  *'  ],
   },
   {
-    icon: "",
-    ops: [ '', '' ],
+    icon: "./assets/icon_11.png",
+    ops: [ '* *', ' * ', ' * '  ],
   },
   {
-    icon: "",
-    ops: [ '', '' ],
+    icon: "./assets/icon_6.png",
+    ops: [ ' **', '** ', ' * '  ],
   },
   {
-    icon: "",
-    ops: [ '', '' ],
+    icon: "./assets/icon_10.png",
+    ops: [ '** ', ' **', '** '  ],
   },
   {
-    icon: "",
-    ops: [ '', '' ],
-  },
-  {
-    icon: "",
-    ops: [ '', '' ],
-  },
+    icon: "./assets/icon_12.png",
+    ops: [ '  *', '*  ', '  *'  ],
+  }
 ]
+
+const windmolen = { icon: "./assets/windmolen.png", ops: [ '***', '***', '***'  ] };
+
 
 // parses operations for a specific symbols and returns unsafe positions, relative to symbol position
 function parse_ops(symbol) {
   let res = [];
-  for (const op of symbol.ops) {
-    let isAltOp = false;
-    for (const char of op) {
-      const charCode = char.charCodeAt(0);
-      if (charCode > 'a'.charCodeAt(0) && charCode < 'z'.charCodeAt(0)) {
-        isAltOp = true;
-      } else {
-        switch (char) {
-          case '_':
-            res.push(isAltOp ? [0,1] : [-1,0]);
-            res.push([0,0]);
-            res.push(isAltOp ? [0,-1] : [1,0]);
-            break;
-          case '^':
-            res.push(isAltOp ? [0, 1] : [0, -1]);
-            break;
-          case '.':
-            if (isAltOp) {
-              res.splice(res.indexOf([0,0]), 1);
-            } else {
-              res.push([0,0])
-            }
-            break;
-          case '/':
-            res.push(isAltOp ? [-1,-1] : [-1,1]);
-            res.push([0,0]);
-            res.push(isAltOp ? [1,1] : [1,-1]);
-            break;
-        }
+  for (let y = 0; y < symbol.ops.length; y++ ) {
+    const row = symbol.ops[y];
+    for (let x = 0; x < row.length; x++) {
+      if (row[x] === '*') {
+        res.push([x-1, y-1])
       }
     }
   }
@@ -117,14 +97,11 @@ function get_hit_positions(symbols_with_positions) {
 }
 
 
-let layout = [
-  {symbol: syms[0], pos: [1,1]},
-  {symbol: syms[1], pos: [0,0]},
-]
+let layout = []
 const hasBeenSolved = false;
 let solves = 0;
 const solvesNeeded = 3;
-
+//
 // generate the symbols displayed on the n
 function generateLayout() {
   const res = [];
@@ -132,28 +109,32 @@ function generateLayout() {
   const occupiedPositions = new Set();
   const amountOfSymbols = Math.floor(Math.random() * 5) + 1;
   for (let i = 0; i < amountOfSymbols; i++) {
-    const sym = syms[Math.floor(Math.random()*syms.length)];
-    let position
-    do { // make sure we don't have duplicate positions
+    const sym = Math.random() < 0.01 
+      ? windmolen // rare chance of windmolen
+      : syms[Math.floor(Math.random()*syms.length)];
+
+    let position = Math.random() < 0.6 
+      ? [1,1] 
+      : [Math.floor(Math.random() * 3), Math.floor(Math.random() * 3)];
+    while ( occupiedPositions.has(position.toString())) { // make sure we don't have duplicate positions
       position = [Math.floor(Math.random() * 3), Math.floor(Math.random() * 3)];
-    } while (occupiedPositions.has(position.toString()));
+    }
 
     res.push({symbol: sym, pos: position});
     occupiedPositions.add(position.toString());
   }
 
   // check if layout is possible
-  let safeExists = false;
+  let safeTiles = 0;
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
       if (!get_hit_positions(res).some((pos) => pos[0] == i && pos[1] == j)) {
-        safeExists = true
-        break;
+        safeTiles++;
       }
     }
   }
 
-  if (safeExists) {
+  if (safeTiles > 0 && safeTiles < 3) {
     return res;
   } else {
     return generateLayout() // if layout is impossible, try again
@@ -175,9 +156,13 @@ function displaySymbols(layout) {
     const buttIndex = pos[0] + pos[1] * 3;
     const butt = document.getElementById(`button_${buttIndex}`);
     if (butt) {
-      const img = document.createElement("img");
-      img.src = symbol.icon;
-      butt.appendChild(img);
+      if (symbol.icon === "") {
+        butt.innerHTML = syms.indexOf(symbol)
+      } else {
+        const img = document.createElement("img");
+        img.src = symbol.icon;
+        butt.appendChild(img);
+      }
     }
   }
 }
