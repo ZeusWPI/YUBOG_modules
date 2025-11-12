@@ -100,7 +100,7 @@ function get_hit_positions(symbols_with_positions) {
 
 
 let layout = []
-const hasBeenSolved = false;
+let hasBeenSolved = false;
 let solves = 0;
 const solvesNeeded = 3;
 
@@ -203,7 +203,6 @@ function handleStrike() {
     document.body.classList.add("strike-effect");
     setTimeout(() => document.body.classList.remove("strike-effect"), 1000);
     bombModule.sendStrike();
-
   }
 }
 
@@ -213,9 +212,10 @@ function handleSolve() {
   if (solves >= solvesNeeded) {
     bombModule.sendSolve();
     document.body.classList.add("we-solved-the-puzzle-exclamation-mark");
+    hasBeenSolved = true
   }
 
-  updateProgressCircles()
+  updateProgressCircles();
   document.body.classList.add("solve-effect");
   setTimeout(() => document.body.classList.remove("solve-effect"), 1000);
 }
@@ -234,11 +234,17 @@ function onClick(button) {
   } else {
     handleSolve()
   }
-  setTimeout(() => {
-    layout = generateLayout()
-    displaySymbols(layout)
-    clickDebounce = false
-  }, 1000)
+  if (!hasBeenSolved) {
+    setTimeout(() => {
+      layout = generateLayout()
+      displaySymbols(layout)
+      clickDebounce = false
+    }, 1000)
+  } else {
+    console.log("4D bomb radar solved")
+    clearGrid()
+    setTimeout(() => document.getElementById("grid").classList.add("we-solved-the-puzzle-exclamation-mark"), 200);
+  }
 }
 
 layout = generateLayout()
