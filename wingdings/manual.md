@@ -1,4 +1,5 @@
 # On the Subject of Wingdings
+- For the purpose of this module the only letters in the alphabet are: a, e, l, n, o, r, s and t.
 - The module will be entirely in wingdings.
 - Each wingdings character correlates to one letter.
 - Use the given words to figure out which character is which letter.

@@ -8,7 +8,7 @@
     <div class="box">
     <div class="row">
     <button id="left">&#x2022</button>
-    <h1 id="header">Explode!</h1>
+    <h1 id="header">loading</h1>
     <button id="right">&#x2B9E</button>
     </div>
     <div class="middle">
@@ -265,17 +265,32 @@
     }
 
     // get that solution word and make a solution array containing the order of indexes of the 5 letters
-    const word = words[wordletters.indexOf(selectedLetters.toString())];
+    const solutionWord = words[wordletters.indexOf(selectedLetters.toString())];
     let solution = [];
-    for (var i = 0; i < word.length; i++) {
-        solution.push(selectedLetters.indexOf(word[i]));
+    for (var i = 0; i < solutionWord.length; i++) {
+        solution.push(selectedLetters.indexOf(solutionWord[i]));
     }
 
-    // choose nWords out of the list of words to show the defuser on the display, the same word can be chosen twice ¯\_(ツ)_/¯
+    // choose nWords out of the list of words to show the defuser on the display, the words are unique and can't be the solution word
+    // make a list of unique indexes, the solutionwordindex is also added to make sure the other indexes are different
+    let wordIndexes = [];
     let showableWords = [];
-    let test = "test".split("");
-    for (var i = 0; i < nWords; i++) {
-        showableWords.push(convertToWingdings(words[Math.floor(Math.random()*words.length)]))
+    wordIndexes.push(words.indexOf(solutionWord));
+    for (var i = 1; i <= Math.min(nWords,words.length); i++) {
+        let index = Math.floor(Math.random()*(words.length-i));
+        wordIndexes.sort(function(a, b){return a - b});
+        for (var j = 0; j < i; j++) {
+            if (index >= wordIndexes[j]) {
+                index += 1;
+            }
+        }
+        wordIndexes.push(index);
+    }
+    // remove solutionwordindex from the list of indexes
+    wordIndexes = wordIndexes.slice(0,wordIndexes.indexOf(words.indexOf(solutionWord))).concat(wordIndexes.slice(wordIndexes.indexOf(words.indexOf(solutionWord))+1, wordIndexes.length));
+    // add all words from the indexes just generated in wingdings to the list of showable words
+    for (var i = 0; i < wordIndexes.length; i++) {
+        showableWords.push(convertToWingdings(words[wordIndexes[i]]));
     }
     updateViewedWord();
 
