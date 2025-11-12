@@ -88,7 +88,9 @@ function parse_ops(symbol) {
 
 // get positions that are hit by given symbol at symbol_pos
 function get_hit_positions_by_symbol(symbol, symbol_pos) {
-  return parse_ops(symbol).map((pos) => [symbol_pos[0] + pos[0], symbol_pos[1] + pos[1]])
+  return parse_ops(symbol).map((pos) => { 
+    return [symbol_pos[0] + pos[0], symbol_pos[1] + pos[1]] 
+  })
 }
 
 // get list of unsafe positions hit by layout
@@ -101,13 +103,13 @@ let layout = []
 const hasBeenSolved = false;
 let solves = 0;
 const solvesNeeded = 3;
-//
+
 // generate the symbols displayed on the n
 function generateLayout() {
   const res = [];
 
   const occupiedPositions = new Set();
-  const amountOfSymbols = Math.floor(Math.random() * 5) + 1;
+  const amountOfSymbols = Math.floor(Math.random() * 4) + 1;
   for (let i = 0; i < amountOfSymbols; i++) {
     const sym = Math.random() < 0.01 
       ? windmolen // rare chance of windmolen
@@ -126,43 +128,62 @@ function generateLayout() {
 
   // check if layout is possible
   let safeTiles = 0;
+  const hit_positions = get_hit_positions(res);
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
-      if (!get_hit_positions(res).some((pos) => pos[0] == i && pos[1] == j)) {
-        safeTiles++;
-      }
+      const isHit = hit_positions.some(([x, y]) => x === i && y === j);
+      if (!isHit) safeTiles++;
     }
   }
 
-  if (safeTiles > 0 && safeTiles < 3) {
+  if (safeTiles > 0 && safeTiles < 5) {
     return res;
   } else {
     return generateLayout() // if layout is impossible, try again
   }
 }
 
-// Clear any symbols and display the given layout's symbols on grid
-function displaySymbols(layout) {
-  // clear symbols
+// clear visuals of grid
+function clearGrid() {
   for (let i = 0; i < 9; i++) {
     const butt = document.getElementById(`button_${i}`);
     if (butt) {
       butt.innerHTML = '';
     }
   }
+}
+
+function getButtIndex(pos) {
+  if (pos[0] < 0 || pos[1] < 0 || pos[0] > 2 || pos[1] > 2) {
+    return -1
+  } else {
+    return pos[0] + pos[1] * 3
+  }
+}
+
+// Clear any symbols and display the given layout's symbols on grid
+function displaySymbols(layout) {
+  clearGrid()
 
   // display new symbols
   for (const {symbol, pos} of layout) {
-    const buttIndex = pos[0] + pos[1] * 3;
+    const buttIndex = getButtIndex(pos)
     const butt = document.getElementById(`button_${buttIndex}`);
     if (butt) {
-      if (symbol.icon === "") {
-        butt.innerHTML = syms.indexOf(symbol)
-      } else {
-        const img = document.createElement("img");
-        img.src = symbol.icon;
-        butt.appendChild(img);
-      }
+      const img = document.createElement("img");
+      img.src = symbol.icon;
+      butt.appendChild(img);
+    }
+  }
+}
+
+function displayHitTiles(layout) {
+  clearGrid()
+  for (const pos of get_hit_positions(layout)) {
+    const buttIndex = getButtIndex(pos)
+    const butt = document.getElementById(`button_${buttIndex}`);
+    if (butt) {
+      butt.textContent = "X" + buttIndex
     }
   }
 }
@@ -178,22 +199,28 @@ function handleStrike() {
 function handleSolve() {
   if (solves >= solvesNeeded) {
     bombModule.sendSolve();
-  } else {
-    layout = generateLayout()
-    displaySymbols(layout)
   }
 }
 
+let clickDebounce = false;
 // handle clicking on a button
 function onClick(button) {
+  if (clickDebounce || hasBeenSolved) { return };
+  clickDebounce = true;
   const x = button % 3;
   const y = Math.floor(button / 3);
 
+  displayHitTiles(layout)
   if (get_hit_positions(layout).some(pos => pos[0] == x && pos[1] == y)) {
     handleStrike()
   } else {
     handleSolve()
   }
+  setTimeout(() => {
+    layout = generateLayout()
+    displaySymbols(layout)
+    clickDebounce = false
+  }, 1000)
 }
 
 layout = generateLayout()

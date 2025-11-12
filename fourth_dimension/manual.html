@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>4D bomb radar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: auto;
+      margin-bottom: 10px;
+    }
+
+    thead th {
+      background-color: #333;
+      color: white;
+      text-align: left;
+      padding: 10px;
+      font-size: 18px;
+      border: 1px solid #555;
+    }
+
+    tbody td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      vertical-align: middle;
+    }
+
+    td table {
+      border: 5px solid black;
+      background-image: radial-gradient(#353560, #001020);
+    }
+
+    td table td {
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      vertical-align: middle;
+      border: 1px solid black;
+      font-weight: bold;
+      font-size: 18px;
+      color: red;
+    }
+
+    >table>tr>td {
+      padding: 10px;
+      vertical-align: middle;
+    }
+
+    img {
+      width: 64px;
+      height: 64px;
+      display: block;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>4D Bomb radar</h1>  
+  <h3>Under attack by a fourth-dimensional nation? Accidentally started an interdimensional war? We might not be able to stop it, but we can help you avoid getting hit! Follow this quick guide to learn how to detect and dodge incoming 4D bombs.</h3>
+
+  <p>The radar shows a <strong>3×3 grid</strong> representing your immediate surroundings. In the table below, each row shows a bomb type: the <strong>left column</strong> displays its symbol, and the <strong>right column</strong> shows which positions around it will be hit (<strong>X</strong> means DEATH !!!).</p>
+
+  <p>Your mission as a bomb defuser is to determine which tiles are safe and click on one that won’t be struck by any bomb.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Pattern</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><img src="./assets/icon_8.png"></td>
+        <td>
+          <table>
+            <tr>
+              <td> </td><td> </td><td> </td>
+            </tr>
+            <tr>
+              <td> </td><td>X</td><td> </td>
+            </tr>
+            <tr>
+              <td> </td><td>X</td><td> </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="./assets/icon_3.png"></td>
+        <td>
+          <table>
+            <tr>
+              <td> </td><td>X</td><td> </td>
+            </tr>
+            <tr>
+              <td>X</td><td>X</td><td>X</td>
+            </tr>
+            <tr>
+              <td> </td><td>X</td><td> </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="./assets/icon_5.png"></td>
+        <td>
+          <table>
+            <tr>
+              <td> </td><td>X</td><td> </td>
+            </tr>
+            <tr>
+              <td>X</td><td> </td><td>X</td>
+            </tr>
+            <tr>
+              <td> </td><td>X</td><td> </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="./assets/icon_14.png"></td>
+        <td>
+          <table>
+            <tr>
+              <td>X</td><td> </td><td>X</td>
+            </tr>
+            <tr>
+              <td> </td><td>X</td><td> </td>
+            </tr>
+            <tr>
+              <td>X</td><td> </td><td>X</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="./assets/icon_13.png"></td>
+        <td>
+          <table>
+            <tr>
+              <td> </td><td>X</td><td> </td>
+            </tr>
+            <tr>
+              <td> </td><td> </td><td> </td>
+            </tr>
+            <tr>
+              <td> </td><td>X</td><td> </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="./assets/icon_7.png"></td>
+        <td>
+          <table>
+            <tr>
+              <td>X</td><td> </td><td>X</td>
+            </tr>
+            <tr>
+              <td>X</td><td>X</td><td>X</td>
+            </tr>
+            <tr>
+              <td>X</td><td> </td><td>X</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="./assets/icon_2.png"></td>
+        <td>
+          <table>
+            <tr>
+              <td> </td><td>X</td><td>X</td>
+            </tr>
+            <tr>
+              <td> </td><td> </td><td>X</td>
+            </tr>
+            <tr>
+              <td> </td><td>X</td><td> </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="./assets/icon_4.png"></td>
+        <td>
+          <table>
+            <tr>
+              <td>X</td><td>X</td><td> </td>
+            </tr>
+            <tr>
+              <td>X</td><td> </td><td> </td>
+            </tr>
+            <tr>
+              <td> </td><td>X</td><td>X</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="./assets/icon_9.png"></td>
+        <td>
+          <table>
+            <tr>
+              <td>X</td><td>X</td><td> </td>
+            </tr>
+            <tr>
+              <td>X</td><td> </td><td>X</td>
+            </tr>
+            <tr>
+              <td> </td><td>X</td><td>X</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="./assets/icon_1.png"></td>
+        <td>
+          <table>
+            <tr>
+              <td>X</td><td> </td><td>X</td>
+            </tr>
+            <tr>
+              <td>X</td><td> </td><td>X</td>
+            </tr>
+            <tr>
+              <td>X</td><td> </td><td>X</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="./assets/icon_16.png"></td>
+        <td>
+          <table>
+            <tr>
+              <td>X</td><td>X</td><td>X</td>
+            </tr>
+            <tr>
+              <td> </td><td> </td><td> </td>
+            </tr>
+            <tr>
+              <td>X</td><td>X</td><td>X</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="./assets/icon_15.png"></td>
+        <td>
+          <table>
+            <tr>
+              <td>X</td><td> </td><td>X</td>
+            </tr>
+            <tr>
+              <td>X</td><td>X</td><td>X</td>
+            </tr>
+            <tr>
+              <td> </td><td> </td><td>X</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="./assets/icon_11.png"></td>
+        <td>
+          <table>
+            <tr>
+              <td>X</td><td> </td><td>X</td>
+            </tr>
+            <tr>
+              <td> </td><td>X</td><td> </td>
+            </tr>
+            <tr>
+              <td> </td><td>X</td><td> </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="./assets/icon_6.png"></td>
+        <td>
+          <table>
+            <tr>
+              <td> </td><td>X</td><td>X</td>
+            </tr>
+            <tr>
+              <td>X</td><td>X</td><td> </td>
+            </tr>
+            <tr>
+              <td> </td><td>X</td><td> </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="./assets/icon_10.png"></td>
+        <td>
+          <table>
+            <tr>
+              <td>X</td><td>X</td><td> </td>
+            </tr>
+            <tr>
+              <td> </td><td>X</td><td>X</td>
+            </tr>
+            <tr>
+              <td>X</td><td>X</td><td> </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="./assets/icon_12.png"></td>
+        <td>
+          <table>
+            <tr>
+              <td> </td><td> </td><td>X</td>
+            </tr>
+            <tr>
+              <td>X</td><td> </td><td> </td>
+            </tr>
+            <tr>
+              <td> </td><td> </td><td>X</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+  </table>
+  </tbody>
+</body>
+</html>
