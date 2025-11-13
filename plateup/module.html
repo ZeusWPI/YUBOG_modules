@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <title>YUBOG - PlateUp! Module</title>
+</head>
+<body>
+<div class="box">
+    <div id="status-bar">
+        <img src="assets/cook.png" alt="cooking progress"/>
+        <div id="progress-img"></div>
+    </div>
+    <div class="button-box">
+        <button class="action">MEAT</button>
+        <button class="action">BUNS</button>
+        <button class="action">TOMATO</button>
+        <button class="action">CHEESE</button>
+        <button class="action">FLOUR</button>
+        <button class="action">OIL</button>
+        <button class="action">CHOP</button>
+        <button class="action">HOB</button>
+        <button class="action">PLATE</button>
+    </div>
+    <div class="image-box">
+        <img id="customer_seat" src="assets/no_customer.png" alt="table"/>
+    </div>
+</div>
+</body>
+
+<script type="module" src="plateup_module.js"></script>
+
+<style>
+    body {
+        user-select: none;
+        font-size: 8vmin;
+    }
+
+    .button-box {
+        width: 100%;
+        grid-column: 1;
+        grid-row: 1;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .image-box {
+        background-color: #444444;
+        border-radius: 8%;
+        width: 100%;
+        margin: auto;
+        aspect-ratio: 1 / 1;
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .image-box img {
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    .box {
+        aspect-ratio: 1 / 1;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #progress-img {
+        background-size: 100% 100%;
+        height: 70%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        margin-right: 5%;
+        width: 100%;
+    }
+
+    #status-bar img {
+        height: 70%;
+        aspect-ratio: 1 / 1;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    #status-bar {
+        margin-top: 5%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #1C1C26;
+        border-radius: 17px;
+        aspect-ratio: 3 / 1;
+        width: 95%;
+        grid-row: 1;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        display: flex;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+
+    button {
+        height: fit-content;
+        background: linear-gradient(#e5b350, #c18f2e);
+        margin: 3px;
+        cursor: pointer;
+        border-width: 1vmin;
+        border-color: #444444;
+        font-size: 6vmin;
+        font-weight: bold;
+    }
+
+
+    button:active {
+        background: linear-gradient(#c18f2e, #e5b350);
+    }
+</style>
+</html>
