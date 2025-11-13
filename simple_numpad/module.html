@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="box">
+    <div class="display">
+        <h1 class="display-color" id="display"></h1>
+    </div>
+    <div class="buttons">
+        <button id="1">1</button>
+        <button id="2">2</button>
+        <button id="3">3</button>
+        <button id="4">4</button>
+        <button id="5">5</button>
+        <button id="6">6</button>
+        <button id="7">7</button>
+        <button id="8">8</button>
+        <button id="9">9</button>
+        <button id="reset">reset</button>
+    </div>
+    </div>
+</body>
+
+<script type="module">
+    import BombModule from "../../ModuleLib.js";
+    const bombModule = new BombModule();
+
+    const display = document.getElementById("display");
+    const requiredSolves = 5; // This needs to be at least 3 please (I mean it's not required but it would be kinda lame)
+
+    let lastPressed = 0;
+    let pressingInOrder = false;
+
+    let generatedNumbers = []
+    for (let i = 0; i < requiredSolves; i++) {
+        generatedNumbers.push(generateNumber(i));
+    }
+
+    let subsolves = 0;
+
+    for (let i = 1; i <= 9; i++) {
+        document.getElementById(i.toString()).addEventListener("click", () => press(i));
+    }
+    document.getElementById("display").addEventListener("click", () => press(-1));
+    document.getElementById("reset").addEventListener("click", () => reset());
+
+    function reset() {
+        generatedNumbers = [];
+        for (let i = 0; i < requiredSolves; i++) {
+            generatedNumbers.push(generateNumber(i));
+        }
+        subsolves = 0;
+        pressingInOrder = false;
+        lastPressed = 0;
+        updateDisplay()
+    }
+
+    function press(numberPressed) {
+        if (numberPressed === 1) {
+            pressingInOrder = true;
+        } else if (numberPressed !== lastPressed+1) {
+            pressingInOrder = false;
+        }
+        lastPressed = numberPressed;
+
+
+        const isCorrect = isCorrectNumber(numberPressed);
+        if (isCorrect === true) {
+            pressingInOrder = false;
+            subsolves++;
+            if (subsolves >= requiredSolves) {
+                display.textContent = "SOLBED !!";
+                bombModule.sendSolve();
+            }
+            updateDisplay()
+        } else if (isCorrect === -1) {
+        } else {
+            bombModule.sendStrike(requiredSolves);
+        }
+    }
+
+    function generateNumber(solves) {
+        if (solves === 3) {
+            return Math.floor(Math.random() * 500) + "+" + Math.floor(Math.random() * 500);
+        } else {
+            return Math.floor(Math.random() * 9 + 1);
+        }
+    }
+
+    function getCurrentNumber() {
+         return generatedNumbers[subsolves];
+    }
+
+    function getNumberNumberAtSolves(solves) {
+        if (solves >= requiredSolves) {return -1}
+        let currentNumberOrString = generatedNumbers[solves];
+        if (typeof currentNumberOrString === "string" ) {
+            return new Function('return ' + currentNumberOrString)();
+        } else {
+            return currentNumberOrString;
+        }
+    }
+
+    function getCurrentNumberNumber() {
+        return getNumberNumberAtSolves(subsolves);
+    }
+
+    function theSumOfAllNumbers() {
+        let res = 0
+        for (let i = 0; i < requiredSolves; i++) {
+            res += getNumberNumberAtSolves(i);
+        }
+        return res;
+    }
+
+    function isCorrectNumber(number) {
+        const currentNumberNumber = getCurrentNumberNumber();
+        if (currentNumberNumber < 10) {
+            return number === (currentNumberNumber) % 9 + 1;
+        } else {
+            const sum = theSumOfAllNumbers();
+            if (sum < 10) {
+                return number === (currentNumberNumber) % 9 + 1;
+            } else if (sum < 100) {
+                return number === 4;
+            } else if (sum < 200) {
+                return number === -1;
+            } else if (sum < 300) {
+                return number === 1;
+            } else if (sum < 700) {
+                return number === -1;
+            } else if (sum < 800) {
+                if (pressingInOrder && number === 9) {
+                    return true;
+                } else if (pressingInOrder) {
+                    return  -1;
+                } else {
+                    return false;
+                }
+            } else if (sum < 900) {
+                return number === 3;
+            } else if (sum < 1000) {
+                return number === 2;
+            } else {
+                return -1
+            }
+        }
+    }
+
+    function updateDisplay() {
+        const currentNumber = getCurrentNumber();
+        if (currentNumber) {
+            display.textContent = currentNumber.toString();
+        }
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+    function shuffleButtons() {
+        const buttons = Array.from(document.querySelectorAll('.buttons button'));
+        const shuffledButtons = shuffleArray(buttons);
+
+        const buttonsContainer = document.querySelector('.buttons');
+        buttonsContainer.innerHTML = '';
+
+        shuffledButtons.forEach(button => buttonsContainer.appendChild(button));
+    }
+    shuffleButtons();
+    updateDisplay();
+</script>
+
+<style>
+    body {
+        font-size: 8vmin;
+        
+    }
+
+    .display {
+        background: black;
+        border: 4px solid darkslategray;
+        width: 80vw;
+        height: 30vh;
+        justify-content: center;
+    }
+    .display-color {
+        color: red;
+    }
+
+    button {
+        border: none;
+        padding: 5vmin;
+        border-radius: 10%;
+        background: lawngreen;
+        color: purple;
+        overflow: clip;
+        cursor: pointer;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    .buttons {
+        height: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #reset {
+        background-color: black;
+    }
+
+    .buttons > * {
+        flex: 1 1 calc(33.33% - 10px);
+        max-width: calc(33.33% - 10px);
+        text-align: center;
+    }
+
+
+    .box {
+        height: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0%;
+        color: white;
+    }
+</style>
+</html>
