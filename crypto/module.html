@@ -119,17 +119,10 @@
             }
         }
 
-        console.log(key);
-        console.log(decryptedCode);
-        // console.log(bombModule.getSerialNumber());
-        // console.log(bombModule.isPortPresent("DVI-D"));
-
         // If the player's guess matches the decrypted code
         if (inputCode === decryptedCode) {
-            alert("Correct! Bomb defused!");
             bombModule.sendSolve();  // Send signal to defuse the module
         } else {
-            alert("Incorrect! Strike!");
             bombModule.sendStrike();  // Send signal for a strike
         }
     }
@@ -195,3 +188,4 @@
 </style>
 </body>
 </html>
+
