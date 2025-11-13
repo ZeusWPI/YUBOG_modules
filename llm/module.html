@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div class="box">
+        <h1>🤖</h1>
+        <p id="prompt">Prompt</p>
+        <input id="answer" required placeholder="Your Answer"></input>
+        <button id="submit">Submit</button>
+    </div>
+</body>
+
+<script type="module">
+    import BombModule from "https://hannes-dev.github.io/YUBOG/ModuleLib.js";
+    const bombModule = new BombModule();
+
+    const AI_ISMS = ["You're absolutely right!", "Certainly!", "Excellent question!", "As a large language model", "I'm sorry, but", "It's important to note", "With that being said", "On the other hand", "Delve into", "Navigating the landscape", "A testament to", "In conclusion", "When it comes to", "This underscores the importance of"];
+    const random = Math.floor(Math.random() * AI_ISMS.length);
+    const prompt = AI_ISMS[random];
+    let solved = false;
+    let promptObfuscated = "";
+
+    for (const c of prompt) {
+        if (Math.random() < 0.5 && c != " ") {
+            promptObfuscated += "*";
+        } else {
+            promptObfuscated += c;
+        }
+    }
+
+    document.getElementById("prompt").textContent = promptObfuscated;
+    document.getElementById("submit").addEventListener("click", submit);
+
+
+    function submit() {
+        if (solved) {
+            return;
+        }
+        if (document.getElementById("answer").value != prompt) {
+            bombModule.sendStrike();
+        } else {
+            bombModule.sendSolve();
+            solved = true;
+        }
+    }
+</script>
+
+<style>
+    body {
+        user-select: none;
+        font-size: 8vmin;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    .buttons {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0%;
+        color: white;
+    }
+</style>
+
+</html>
