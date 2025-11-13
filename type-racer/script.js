@@ -7,10 +7,8 @@ const colors = [
 ]
 
 const sentences = [
-  "Speed matters when the bomb is ticking.",
-  "Type fast but do not make any mistakes.",
-  "A second too slow and you might get a strike.",
-  "But be aware! accuracy is just as important as speed."
+  "Speed matters when the bomb is ticking. Type fast but do not make any mistakes.",
+  "A second too slow and you might get a strike. But be aware! Accurracy is just important as speed.",
 ];
 
 let currentSentenceIndex = 0;
@@ -18,6 +16,7 @@ let startTime = null;
 let speedRequirement;
 let speedMode;
 let firstKeypress = false;
+let solved = false;
 
 const typingInput = document.getElementById("typing-input");
 const sentenceDisplay = document.getElementById("line1");
@@ -80,6 +79,8 @@ typingInput.addEventListener("keydown", function (event) {
 });
 
 function checkSentence() {
+  if (solved) return;
+
   let userInput = typingInput.value.trim();
   let correctSentence = sentences[currentSentenceIndex];
 
@@ -121,6 +122,7 @@ function checkSentence() {
   bombModule.sendSolve();
   messageBox.textContent = "🎉 Module Solved!";
   messageBox.style.color = "gold";
+  solved = true;
 }
 
 function sendStrike(msg) {
