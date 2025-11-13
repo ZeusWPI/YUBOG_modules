@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>
+            Button
+        </title>
+    </head>
+    <body>
+        <p>
+        </p>
+        <button id="Knop">
+        
+        </button>
+        <svg id="indicator" width="60" height="150">
+            <rect width="50" height="150" fill ="grey"/>
+          </svg>
+    </body>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #Knop {
+            text-align: center;
+            font-size: 70px;
+            height: 300px ;
+            width: 300px;
+            border-radius: 50%;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            cursor: pointer;
+        }
+
+        #Knop:hover {
+            background-color: rgb(210, 9, 9);
+            border: 2px solid rgb(159, 10, 10); 
+        }
+    </style>
+    <script type="module" src="./buttonModule.js"></script>    
+</html>
