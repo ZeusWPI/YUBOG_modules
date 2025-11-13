@@ -7,16 +7,8 @@
 
 
 ## 6 Unique Letters
-alerts, antler, learns, loners, orlean, ornate, reason, stolen, talons, trones
+alerts, loners, ornate, reason, stolen, trones
 ## 5 Unique Letters
-aloose, arsons, assort, astral, atonal, easter, enroll, ernest, lasers, lesson, looser, nestle, notate, otters, relate, relent, rotate, saloon, senate, sensor, slants, snares, snarls, snorts, soares, sollar, sonnet, stroll, talent, teaser, teslas, totals
+aloose, arenas, arsons, assort, astral, atonal, easter, enroll, ernest, lasers, lesson, looser, nestle, notate, otters, relate, relent, rotate, saloon, season, senate, sensor, slants, snarls, snorts, soarer, sollar, sonnet, stroll, talent, teaser, teslas, totals
 ## 4 Unique Letters
 assets, eraser, errors, lenses, noeloe, norton, orator, settle, toasts
-
-season, snares -> arenas, soares -> soarer, talent -> latent, lesson ~~-> loosen~~
-
-assort ~~-> roasts, tarots~~
-otters ~~-> resort, retoss, retros, sorter, tosser~~
-
-ditch:
-orlean, talons, learns, antler
