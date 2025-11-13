@@ -9,6 +9,6 @@
 ## 6 Unique Letters
 alerts, antler, learns, loners, orlean, ornate, reason, stolen, talons, trones
 ## 5 Unique Letters
-aloose, arrest, arsons, assort, astral, atonal, enroll, lasers, lesson, looser, nestle, notate, otters, relate, relent, resent, rotate, saloon, senate, sensor, slants, snares, snarls, snorts, soares, sollar, sonnet, stroll, talent, teaser, teslas, totals
+aloose, arsons, assort, astral, atonal, easter, enroll, ernest, lasers, lesson, looser, nestle, notate, otters, relate, relent, rotate, saloon, senate, sensor, slants, snares, snarls, snorts, soares, sollar, sonnet, stroll, talent, teaser, teslas, totals
 ## 4 Unique Letters
-noeloe, norton, settle, toasts
+assets, eraser, errors, lenses, noeloe, norton, orator, settle, toasts
