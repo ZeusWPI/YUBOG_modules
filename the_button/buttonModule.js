@@ -1,5 +1,5 @@
 
-import BombModule from "../../YUBOG/ModuleLib.js"
+import BombModule from "https://hannes-dev.github.io/YUBOG/ModuleLib.js"
 
 
 const module = new BombModule();
