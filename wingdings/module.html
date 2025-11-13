@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="box">
+    <div class="row">
+    <button id="left">&#x2022</button>
+    <h1 id="header">loading</h1>
+    <button id="right">&#x2B9E</button>
+    </div>
+    <div class="middle">
+        <button id="0">&#9996</button>
+        <button id="1">&#9996</button>
+        <button id="2">&#9996</button>
+        <button id="3">&#9996</button>
+        <button id="4">&#9996</button>
+    </div>
+    </div>
+</body>
+
+<script type="module">
+    // Sorry als ik aan godslastering heb gedaan, dit was mijn eerste keer coderen met js.
+    import BombModule from "https://hannes-dev.github.io/YUBOG/ModuleLib.js";
+    const bombModule = new BombModule();
+
+    // Functions
+    // Shuffles an array
+    function shuffle(array) { // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+        let currentIndex = array.length;
+        while (currentIndex != 0) {
+            let randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        }
+    }
+
+    // Returns 5 from the 8 starting letters, chosen randomly, maintaining the original array order.
+    function sliceLetters() {
+        let excludedIndexes = [];
+        excludedIndexes.push(Math.floor(Math.random()*8));
+        excludedIndexes.push(Math.floor(Math.random()*7));
+        excludedIndexes.push(Math.floor(Math.random()*6));
+
+        let output = letters.slice(0,excludedIndexes[0]).concat(letters.slice(excludedIndexes[0]+1,8));
+        output = output.slice(0,excludedIndexes[1]).concat(output.slice(excludedIndexes[1]+1,7));
+        output = output.slice(0,excludedIndexes[2]).concat(output.slice(excludedIndexes[2]+1,6));
+
+        return output;
+    }
+    
+    // Converts a string to the correct wingdings, using the array of the 8 letters and the shuffled array of wingdings.
+    function convertToWingdings(string) {
+        let output = [];
+        const characters = string.split("");
+        for (var i = 0; i < string.length; i++) {
+            output.push(wingdings[letters.indexOf(characters[i])]);
+        }
+        return output.join("");
+    }
+
+    // When one of the five wingding buttons is clicked this function checks to see if it is the right one. It also checks when the module is solved.
+    function buttonClicked(id) {
+        if (solution[codelockIndex] == buttons.indexOf(id)) {
+            codelockIndex += 1;
+        }
+        else {
+            bombModule.sendStrike();
+            codelockIndex = 0;
+        }
+
+        if (codelockIndex == 6) {
+            bombModule.sendSolve();
+        }
+    }
+
+    // Updates the current word on the display
+    function updateViewedWord() {
+        document.getElementById("header").innerText = showableWords[currentWordIndex];
+    }
+
+    // Updates the character on the left and right arrows to show when clicking them does something.
+    function updateArrows() {
+        if (currentWordIndex == 0) {
+            leftArrow.innerText = '\u{2022}'
+        }
+        else {
+            leftArrow.innerText = '\u{2B9C}'
+        }
+
+        if (currentWordIndex == nWords-1) {
+            rightArrow.innerText = '\u{2022}'
+        }
+        else {
+            rightArrow.innerText = '\u{2B9E}'
+        }
+    }
+
+    // functions for rerouting the click signals to the same function because I don't know how to pass arguments with addEventListener()
+    function zero() {
+        buttonClicked(0);
+    }
+
+    function one() {
+        buttonClicked(1);
+    }
+
+    function two() {
+        buttonClicked(2);
+    }
+
+    function three() {
+        buttonClicked(3);
+    }
+    function four() {
+        buttonClicked(4);
+    }
+
+    // functions for cycling the display with the arrow buttons, making sure the index doesn't go out of bounds
+    function left() {
+        if (currentWordIndex > 0) {
+            currentWordIndex -= 1;
+            updateViewedWord();
+            updateArrows();
+        }
+    }
+
+    function right() {
+        if (currentWordIndex < nWords-1) {
+            currentWordIndex += 1;
+            updateViewedWord();
+            updateArrows();
+        }
+    }
+
+
+    
+    // Variable declaration
+    const wordletters = [
+        "a,e,n,l,t",
+        "a,e,n,o,t",
+        "a,e,r,l,t",
+        "a,e,r,n,o,t",
+        "a,e,r,o,t",
+        "a,e,r,s,l",
+        "a,e,r,s,l,t",
+        "a,e,r,s,n",
+        "a,e,r,s,n,o",
+        "a,e,r,s,o",
+        "a,e,r,s,t",
+        "a,e,s,l,o",
+        "a,e,s,l,t",
+        "a,e,s,n,t",
+        "a,e,s,r,t",
+        "a,n,l,o,t",
+        "a,r,s,l,o",
+        "a,r,s,l,t",
+        "a,r,s,n,l",
+        "a,r,s,n,o",
+        "a,r,s,o,t",
+        "a,s,l,o,t",
+        "a,s,n,l,o",
+        "a,s,n,l,t",
+        "a,s,t,o",
+        "e,r,n,l,o",
+        "e,r,n,l,t",
+        "e,r,s,l,o",
+        "e,r,s,n,l,o",
+        "e,r,s,n,o",
+        "e,r,s,n,o,t",
+        "e,r,s,n,t",
+        "e,r,s,o,t",
+        "e,s,l,t",
+        "e,s,n,l,o",
+        "e,s,n,l,o,t",
+        "e,s,n,l,t",
+        "e,s,n,o,t",
+        "e,n,l,o",
+        "r,n,o,t",
+        "r,s,l,o,t",
+        "r,s,n,o,t",
+        "a,e,s,t",
+        "a,e,r,s",
+        "e,r,s,o",
+        "e,s,n,l",
+        "a,r,o,t",
+        "a,e,s,n,o"
+    ];
+    const words = [
+        "talent",
+        "notate",
+        "relate",
+        "ornate",
+        "rotate",
+        "lasers",
+        "alerts",
+        "arenas",
+        "reason",
+        "soarer",
+        "easter",
+        "aloose",
+        "teslas",
+        "senate",
+        "teaser",
+        "atonal",
+        "sollar",
+        "astral",
+        "snarls",
+        "arsons",
+        "assort",
+        "totals",
+        "saloon",
+        "slants",
+        "toasts",
+        "enroll",
+        "relent",
+        "looser",
+        "loners",
+        "sensor",
+        "trones",
+        "ernest",
+        "otters",
+        "settle",
+        "lesson",
+        "stolen",
+        "nestle",
+        "sonnet",
+        "noeloe",
+        "norton",
+        "stroll",
+        "snorts",
+        "assets",
+        "eraser",
+        "errors",
+        "lenses",
+        "orator",
+        "season"
+    ]
+    const letters = ["a", "e", "r", "s", "n", "l", "o", "t"];
+    let wingdings = ['\u{270C}', '\u{261C}', '\u{261D}', '\u{261E}', '\u{261F}', '\u{1F590}', '\u{1F592}', '\u{1F593}'];
+    let buttons = [0, 1, 2, 3, 4]; // this will become the order in which to shuffle the buttons
+    let codelockIndex = 0; // keeps track of the inputted answer
+    let currentWordIndex = 0; // keeps track of the current word shown on the display
+    let nWords = 5; // amount of words that you can cycle through on the display
+    
+    const leftArrow = document.getElementById("left");
+    const rightArrow = document.getElementById("right");
+
+    document.getElementById("0").addEventListener("click", zero);
+    document.getElementById("1").addEventListener("click", one);
+    document.getElementById("2").addEventListener("click", two);
+    document.getElementById("3").addEventListener("click", three);
+    document.getElementById("4").addEventListener("click", four);
+    leftArrow.addEventListener("click", left);
+    rightArrow.addEventListener("click", right);
+
+
+
+    // Start of actual program
+    shuffle(wingdings);
+    shuffle(buttons);
+
+    // get a valid set of five letters that has a solution word
+    var selectedLetters = sliceLetters();
+    while (!wordletters.includes(selectedLetters.toString())) {
+        selectedLetters = sliceLetters();
+    }
+
+    // get that solution word and make a solution array containing the order of indexes of the 5 letters
+    const solutionWord = words[wordletters.indexOf(selectedLetters.toString())];
+    let solution = [];
+    for (var i = 0; i < solutionWord.length; i++) {
+        solution.push(selectedLetters.indexOf(solutionWord[i]));
+    }
+
+    // choose nWords out of the list of words to show the defuser on the display, the words are unique and can't be the solution word
+    // make a list of unique indexes, the solutionwordindex is also added to make sure the other indexes are different
+    let wordIndexes = [];
+    let showableWords = [];
+    wordIndexes.push(words.indexOf(solutionWord));
+    for (var i = 1; i <= Math.min(nWords,words.length); i++) {
+        let index = Math.floor(Math.random()*(words.length-i));
+        wordIndexes.sort(function(a, b){return a - b});
+        for (var j = 0; j < i; j++) {
+            if (index >= wordIndexes[j]) {
+                index += 1;
+            }
+        }
+        wordIndexes.push(index);
+    }
+    // remove solutionwordindex from the list of indexes
+    wordIndexes = wordIndexes.slice(0,wordIndexes.indexOf(words.indexOf(solutionWord))).concat(wordIndexes.slice(wordIndexes.indexOf(words.indexOf(solutionWord))+1, wordIndexes.length));
+    // add all words from the indexes just generated in wingdings to the list of showable words
+    for (var i = 0; i < wordIndexes.length; i++) {
+        showableWords.push(convertToWingdings(words[wordIndexes[i]]));
+    }
+    updateViewedWord();
+
+    // display the correct wingdings symbol on the 5 input buttons
+    for (var i = 0; i < 5; i++) {
+        document.getElementById(buttons[i].toString()).innerText = convertToWingdings(selectedLetters[i]);
+    }
+    
+</script>
+
+<style>
+    body {
+        user-select: none;
+        font-size: 5vmin;
+    }
+
+    button {
+        border: none;
+        padding: 5vmin;
+        border-radius: 10%;
+        color: black;
+        background-color: bisque;
+        cursor: pointer;
+        font-size: 8vmin;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    #left {
+        background-color: green;
+        max-height: 5rem;
+        font-size: 10vmin;
+    }
+
+    #right {
+        background-color: green;
+        max-height: 5rem;
+        font-size: 10vmin;
+    }
+
+    #no {
+        background-color: darkred;
+    }
+
+    .buttons {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .row {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .box {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0%;
+        color: white;
+    }
+</style>
+</html>
