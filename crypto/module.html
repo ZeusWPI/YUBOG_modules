@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Codebreaker</title>
+</head>
+<body>
+<div class="box">
+    <p><span id="encrypted-code">XJ8W7A-Q2L4M9</span></p>
+
+    <!-- Input field for code guess -->
+    <input type="text" id="input-code" placeholder="Enter code">
+
+    <div class="buttons">
+        <button id="submit">Submit Code</button>
+    </div>
+
+    <div id="result"></div>
+</div>
+
+<script type="module">
+    import BombModule from "../../ModuleLib.js";
+    const bombModule = new BombModule();
+
+    let encryptedCode = document.getElementById("encrypted-code").innerText;
+    let key = 0;
+    let inputField = document.getElementById("input-code");
+
+    document.getElementById("submit").addEventListener("click", submitCode);
+
+    function generateRandomString(n, k) {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let result = '';
+
+        for (let i = 0; i < n; i++) {
+            let part = '';
+            for (let j = 0; j < k; j++) {
+                part += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            result += part;
+            if (i < n - 1) result += '-'; // Add a separator if not the last part
+        }
+
+        return result;
+    }
+
+    let randomString = generateRandomString(2, 6);
+    document.getElementById("encrypted-code").innerText = randomString;
+
+    function shiftChar(char, shift) {
+        let charCode = char.charCodeAt(0);
+        charCode += shift;
+        if (charCode < 65) {
+            charCode += 26;
+        }
+        if (charCode > 90) {
+            charCode -= 26;
+        }
+        return String.fromCharCode(charCode);
+    }
+
+    function calculate_cipher_key(){
+        let key = 0;
+        // Get the serial number
+        const serialNumber = bombModule.getSerialNumber();
+
+        // If the "DVI-D" port is present, sum the digits in the serial number
+        if (bombModule.isPortPresent("DVI-D")) {
+            const sumOfDigits = serialNumber.split('')  // Split the serial number into an array of characters
+                .filter(char => !isNaN(char))  // Keep only the numeric characters
+                .map(Number)  // Convert the characters to numbers
+                .reduce((sum, num) => sum + num, 0);  // Sum up the numbers
+            key += sumOfDigits;
+        }
+
+        if (bombModule.isPortPresent("Parallel")){
+            key += bombModule.getTotalBatteries();
+        }
+        console.log("Parallel: " +key);
+        if (bombModule.isPortPresent("PS/2")){
+            key += bombModule.getBatteryGroups();
+        }
+        console.log("PS/2: " +key);
+        if (bombModule.isPortPresent("RJ-45")){
+            key += bombModule.getTotalModuleAmount();
+        }
+        console.log("RJ-45: " +key);
+        if (bombModule.isPortPresent("Serial")){
+            key += bombModule.getBatteryGroups() * bombModule.getTotalBatteries();
+        }
+        console.log("serial: " + key);
+        if (bombModule.isPortPresent("Stereo RCA")){
+            // Check if serial contains Q, X, or Z
+            if (/[QXZ]/.test(serialNumber)) {
+                key += 5;
+            } else {
+                key += 4;
+            }
+        }
+        console.log("Stereo RCA: " + key);
+
+        key = key % 26
+        return key;
+    }
+    function submitCode() {
+        let encryptedCode = document.getElementById("encrypted-code").innerText;
+        let inputCode = inputField.value.trim();
+        key = calculate_cipher_key();
+
+        // The manual player needs to guide the bomb player to figure out the decrypted code
+        // The bomb player will guess, and the manual player will tell them if it's correct or not
+        let decryptedCode = '';
+        for (let i = 0; i < encryptedCode.length; i++) {
+            let char = encryptedCode[i];
+            if (/[A-Z]/.test(char)) {
+                decryptedCode += shiftChar(char, key);
+            } else {
+                decryptedCode += char;
+            }
+        }
+
+        // If the player's guess matches the decrypted code
+        if (inputCode.toUpperCase() === decryptedCode) {
+            bombModule.sendSolve();  // Send signal to defuse the module
+        } else {
+            bombModule.sendStrike();  // Send signal for a strike
+        }
+    }
+</script>
+
+<style>
+    body {
+        user-select: none;
+        font-size: 8vmin;
+    }
+
+    button {
+        border: none;
+        padding: 10vmin;
+        border-radius: 10%;
+        color: white;
+        cursor: pointer;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    .buttons {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0%;
+        color: white;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    #submit {
+        background-color: #32CD32;
+    }
+
+    #result {
+        margin-top: 15px;
+        font-size: 18px;
+        color: #FFD700;
+    }
+</style>
+</body>
+</html>
+
+
