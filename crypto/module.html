@@ -120,7 +120,7 @@
         }
 
         // If the player's guess matches the decrypted code
-        if (inputCode === decryptedCode) {
+        if (inputCode.toUpperCase() === decryptedCode) {
             bombModule.sendSolve();  // Send signal to defuse the module
         } else {
             bombModule.sendStrike();  // Send signal for a strike
@@ -188,4 +188,5 @@
 </style>
 </body>
 </html>
+
 
