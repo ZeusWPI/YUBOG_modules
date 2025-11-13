@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>The  Module</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="box">
+        <div>
+            MD5
+        </div>
+        <div style="padding-bottom: 20px;">
+            <input id="input"></input>
+        </div>
+        <div>
+            <button id="submit">Submit</button>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js" integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/md5.min.js" integrity="sha512-ENWhXy+lET8kWcArT6ijA6HpVEALRmvzYBayGL6oFWl96exmq8Fjgxe2K6TAblHLP75Sa/a1YjHpIZRt+9hGOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="module">
+    import BombModule from "../../ModuleLib.js";
+    const bombModule = new BombModule();
+
+    const input = document.getElementById("input");
+    document.getElementById("submit").addEventListener("click", submit);
+
+    function submit() {
+        const serial = bombModule.getSerialNumber();
+        const batteryGroups = bombModule.getBatteryGroups();
+        const batteries = bombModule.getTotalBatteries();
+
+        console.log(`${serial.at(-1)}-${batteryGroups}-${batteries}`)
+        let hash =  CryptoJS.MD5(`${serial.at(-1)}-${batteryGroups}-${batteries}`)
+        console.log(hash.toString());
+
+        if (input.value === hash.toString()) {
+            bombModule.sendSolve();
+        } else {
+            bombModule.sendStrike();
+        }
+    }
+</script>
+
+<style>
+    body {
+        user-select: none;
+        font-size: 8vmin;
+    }
+
+    button {
+        border: none;
+        padding: 10vmin;
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    #input,#submit {
+        background-color: #FF7F00;
+    }
+
+    .buttons {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0%;
+        color: white;
+    }
+</style>
+</html>
