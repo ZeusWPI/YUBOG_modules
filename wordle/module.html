@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+<body id="body">
+<div class="box">
+    <form id="textForm">
+        <input id="textInput" type="text" placeholder="Enter text" />
+        <button id="submit" type="submit">OK</button>
+    </form>
+</div>
+</body>
+
+<script type="module">
+    import BombModule from "../../ModuleLib.js";
+
+    const bombModule = new BombModule();
+
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const dateStr = `${yyyy}-${mm}-${dd}`;
+
+    const res = await fetch(`https://www.nytimes.com/svc/wordle/v2/${dateStr}.json`);
+    const data = await res.json();
+    const solution = data.solution;
+
+    const form = document.getElementById("textForm");
+    form.addEventListener("submit", handleSubmit);
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        const input = document.getElementById("textInput").value.trim();
+
+        if (input === solution) {
+            bombModule.sendSolve();
+        } else {
+            bombModule.sendStrike();
+        }
+
+        document.getElementById("textInput").value = "";
+    }
+</script>
+
+<style>
+    body {
+        user-select: none;
+        font-size: 8vmin;
+    }
+
+    h1 {
+        margin-bottom: 2px;
+        margin-top: 2px;
+    }
+
+    #tekst {
+        margin-bottom: 3px;
+    }
+
+    button {
+        border: none;
+        border-radius: 10%;
+        color: white;
+        cursor: pointer;
+        width: 65pt;
+        height: 40pt;
+    }
+
+    .submits button {
+        height: 25pt;
+        padding: 0;
+    }
+
+    #submit {
+        background-color: green;
+    }
+
+    #reset {
+        background-color: red;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    #up {
+        background-color: rgba(107, 201, 107, 0.88);
+        margin-bottom: 5pt;
+    }
+
+    #down {
+        background-color: #e94343;
+        margin-bottom: 5pt;
+    }
+
+    #left {
+        background-color: khaki;
+    }
+
+    #right {
+        background-color: lightskyblue;
+    }
+
+    .buttons {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .middle {
+        align-items: center;
+        margin-bottom: 2pt;
+    }
+
+    .bottom {
+        align-items: center;
+    }
+
+    .box {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0%;
+        color: white;
+    }
+
+    .orange {
+        background-color: orange;
+    }
+
+    .darkred {
+        background-color: darkred;
+    }
+</style>
+</html>
